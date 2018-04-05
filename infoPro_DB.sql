@@ -13,7 +13,7 @@ CREATE TABLE course   (
 
 -- tutor table
 CREATE TABLE tutor   (
-        hawkid                 VARCHAR(10),
+        hawkid                 VARCHAR(20),
         courseNumber           VARCHAR(6),
 	FOREIGN KEY (courseNumber)    REFERENCES course(courseNumber),
 	PRIMARY KEY (hawkid));
@@ -31,8 +31,8 @@ CREATE TABLE tutorAvailability   (
 -- tutorSession table
 CREATE TABLE tutorSession   (
         session_id              VARCHAR(10) NOT NULL,
-        hawkidStudent           VARCHAR(10) NOT NULL,
-        hawkidTutor             VARCHAR(10) NOT NULL,
+        hawkidStudent           VARCHAR(20) NOT NULL,
+        hawkidTutor             VARCHAR(20) NOT NULL,
         courseNumber            VARCHAR(6)  NOT NULL,
         studentCancel           CHAR(1),
         tutorCancel             CHAR(1),
@@ -53,19 +53,19 @@ CREATE TABLE sessionSchedule   (
 
 -- faculty table
 CREATE TABLE faculty   (
-        hawkidFaculty           VARCHAR(10) PRIMARY KEY NOT NULL,
+        hawkidFaculty           VARCHAR(20) PRIMARY KEY NOT NULL,
         courseNumber            VARCHAR(6)  FOREIGN KEY NOT NULL,
   FOREIGN KEY (hawkidFaculty) REFERENCES role(hawkid));
 
 -- admin table
 CREATE TABLE admin   (
-        hawkidAdmin             VARCHAR(10) PRIMARY KEY NOT NULL,
+        hawkidAdmin             VARCHAR(20) PRIMARY KEY NOT NULL,
   FOREIGN KEY (hawkidAdmin) REFERENCES role(hawkid));
 
 
 -- student table
 CREATE TABLE student   (
-        hawkidStudent           VARCHAR(10) PRIMARY KEY NOT NULL,
+        hawkidStudent           VARCHAR(20) PRIMARY KEY NOT NULL,
         courseNumber            VARCHAR(6) FOREIGN KEY NOT NULL,
 	      tutorCreditsRemaining   INTEGER,
   FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
