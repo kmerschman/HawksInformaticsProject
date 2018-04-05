@@ -59,7 +59,10 @@ CREATE TABLE faculty   (
         hawkid         VARCHAR(10) PRIMARY KEY NOT NULL,
         courseNumber   VARCHAR(6)  FOREIGN KEY NOT NULL;)
 
-
+-- admin table
+CREATE TABLE admin   (
+        hawkidAdmin         VARCHAR(10) PRIMARY KEY NOT NULL,
+        FOREIGN KEY (hawkidAdmin) REFERENCES role(hawkid)
 
 
 -- student table
@@ -86,3 +89,5 @@ INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, open) V
 INSERT INTO tutorSession  (session_id, hawkid, hawkid, courseNumber, studentCancel, tutorCancel) VALUES  ('', '', '', '', '', '');
 INSERT INTO tutorAvailability  (calendar_id, sessionDateTime) VALUES  ('', '', '');
 INSERT INTO tutor  (hawkid, courseNumber) VALUES  ('', '');
+
+INSERT INTO admin  (hawkid) VALUES  ('');
