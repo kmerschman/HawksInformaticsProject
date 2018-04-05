@@ -16,7 +16,7 @@ CREATE TABLE course   (
 CREATE TABLE tutor   (
         hawkid                 VARCHAR(10),
         courseNumber           VARCHAR(6),
-	FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
+	FOREIGN KEY (courseNumber)    REFERENCES course(courseNumber),
 	PRIMARY KEY (hawkid));
 
 
