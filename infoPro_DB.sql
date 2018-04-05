@@ -1,4 +1,4 @@
-aaaa
+
 -- course table
 DROP TABLE tutor;
 DROP TABLE course;
