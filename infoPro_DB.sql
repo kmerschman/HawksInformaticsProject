@@ -1,13 +1,13 @@
 -- course table
-DROP TABLE problemSet;
-DROP TABLE admins;
-DROP TABLE faculty;
-DROP TABLE tutorSession;
-DROP TABLE student;
-DROP TABLE tutorAvailability;
-DROP TABLE sessionSchedule;
-DROP TABLE tutor;
-DROP TABLE course;
+DROP TABLE IF EXISTS problemSet;
+DROP TABLE IF EXISTS admins;
+DROP TABLE IF EXISTS faculty;
+DROP TABLE IF EXISTS tutorSession;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS tutorAvailability;
+DROP TABLE IF EXISTS sessionSchedule;
+DROP TABLE IF EXISTS tutor;
+DROP TABLE IF EXISTS course;
 
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
@@ -91,12 +91,12 @@ CREATE TABLE problemSet   (
 
 
 -- sample data insert statements
-INSERT INTO course  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
-INSERT INTO course  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
-INSERT INTO course  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
-INSERT INTO course  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
-INSERT INTO course  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
-INSERT INTO course  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
 
 
 INSERT INTO student  (hawkidStudent, courseNumber, tutorCreditsRemaining) VALUES  ('a', 'CS:1210', '20');
