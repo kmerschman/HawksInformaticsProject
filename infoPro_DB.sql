@@ -1,12 +1,11 @@
-
 -- course table
 DROP TABLE tutor;
 DROP TABLE course;
 
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
-	studentsEnrolled        VARCHAR(25) NOT NULL,
-	courseDate              DATE,
+	      studentsEnrolled        VARCHAR(25) NOT NULL,
+	      courseDate              DATE,
         courseTime              TIME,
 	PRIMARY KEY (courseNumber));
 
@@ -37,7 +36,7 @@ CREATE TABLE tutorSession   (
         courseNumber            VARCHAR(6)  NOT NULL,
         studentCancel           CHAR(1),
         tutorCancel             CHAR(1),
-	FOREIGN KEY (hawkidStudent) REFERENCES student(hawkid);
+  FOREIGN KEY (hawkidStudent) REFERENCES student(hawkid);
 	FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkid);
 	FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
 	PRIMARY KEY (session_id));
@@ -49,30 +48,28 @@ CREATE TABLE sessionSchedule   (
         session_id              VARCHAR(10) PRIMARY KEY NOT NULL,
         sessionDateTime         DATETIME,
         courseNumber            VARCHAR(6)  FOREIGN KEY NOT NULL,
-        open                    CHAR(1);)
-
-
+        open                    CHAR(1));
 
 
 -- faculty table
 CREATE TABLE faculty   (
-        hawkid         VARCHAR(10) PRIMARY KEY NOT NULL,
-        courseNumber   VARCHAR(6)  FOREIGN KEY NOT NULL;)
+        hawkidFaculty           VARCHAR(10) PRIMARY KEY NOT NULL,
+        courseNumber            VARCHAR(6)  FOREIGN KEY NOT NULL,
+  FOREIGN KEY (hawkidFaculty) REFERENCES role(hawkid));
 
 -- admin table
 CREATE TABLE admin   (
-        hawkidAdmin         VARCHAR(10) PRIMARY KEY NOT NULL,
-        FOREIGN KEY (hawkidAdmin) REFERENCES role(hawkid)
+        hawkidAdmin             VARCHAR(10) PRIMARY KEY NOT NULL,
+  FOREIGN KEY (hawkidAdmin) REFERENCES role(hawkid));
 
 
 -- student table
 CREATE TABLE student   (
-        hawkid                  VARCHAR(10) PRIMARY KEY NOT NULL,
+        hawkidStudent           VARCHAR(10) PRIMARY KEY NOT NULL,
         courseNumber            VARCHAR(6) FOREIGN KEY NOT NULL,
-	tutorCreditsRemaining   INTEGER,
-
-
-
+	      tutorCreditsRemaining   INTEGER,
+  FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
+  FOREIGN KEY (hawkidStudent) REFERENCES role(hawkid));
 
 
 -- problemSet table
