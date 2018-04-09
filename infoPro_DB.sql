@@ -132,3 +132,7 @@ INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('kmbillings', 'CS:1020')
 INSERT INTO admins  (hawkidAdmin) VALUES  ('kmerschman');
 INSERT INTO admins  (hawkidAdmin) VALUES  ('adanover');
 INSERT INTO admins  (hawkidAdmin) VALUES  ('kmbillings');
+
+INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1210', '40', '');
+INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1110', '70', '');
+INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1020', '55', '');
