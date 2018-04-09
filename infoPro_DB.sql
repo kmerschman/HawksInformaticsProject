@@ -1,4 +1,5 @@
 -- course table
+
 DROP TABLE IF EXISTS problemSet;
 DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS faculty;
