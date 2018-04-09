@@ -11,17 +11,17 @@ DROP TABLE IF EXISTS course;
 
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
-	studentsEnrolled        VARCHAR(25) NOT NULL,
+	      studentsEnrolled        VARCHAR(25) NOT NULL,
         courseDateTime          DATETIME NOT NULL,
-	PRIMARY KEY (courseNumber));
+	      PRIMARY KEY (courseNumber));
 
 
 -- tutor table
 CREATE TABLE tutor   (
         hawkidTutor            VARCHAR(20),
         courseNumber           VARCHAR(6),
-	FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
-	PRIMARY KEY (hawkidTutor));
+	      FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
+	      PRIMARY KEY (hawkidTutor));
 
 
 -- sessionSchedule table
@@ -38,15 +38,15 @@ CREATE TABLE sessionSchedule   (
 CREATE TABLE tutorAvailability   (
         calendar_id            VARCHAR(10) NOT NULL,
         sessionDateTime        DATETIME NOT NULL,
-	FOREIGN KEY (sessionDateTime) REFERENCES sessionSchedule(sessionDateTime),
-	PRIMARY KEY (calendar_id));
+	      FOREIGN KEY (sessionDateTime) REFERENCES sessionSchedule(sessionDateTime),
+	      PRIMARY KEY (calendar_id));
 
 
 -- student table
 CREATE TABLE student   (
         hawkidStudent           VARCHAR(20) NOT NULL,
         courseNumber            VARCHAR(6) NOT NULL,
-	tutorCreditsRemaining   INTEGER,
+	      tutorCreditsRemaining   INTEGER,
         FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
         PRIMARY KEY (hawkidStudent));
 
@@ -60,9 +60,9 @@ CREATE TABLE tutorSession   (
         studentCancel           CHAR(1),
         tutorCancel             CHAR(1),
         FOREIGN KEY (hawkidStudent) REFERENCES student(hawkidStudent);
-	FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkidTutor);
-	FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
-	PRIMARY KEY (session_id));
+	      FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkidTutor);
+        FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
+        PRIMARY KEY (session_id));
 
 
 -- faculty table
@@ -82,8 +82,8 @@ CREATE TABLE admins   (
 -- problemSet table
 CREATE TABLE problemSet   (
         problemNumber           INTEGER NOT NULL,
-	question                VARCHAR(400) NOT NULL,
-	courseNumber            VARCHAR(6),
+	      question                VARCHAR(400) NOT NULL,
+	      courseNumber            VARCHAR(6),
         PRIMARY KEY (problemNumber));
 
 
