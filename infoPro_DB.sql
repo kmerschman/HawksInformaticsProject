@@ -93,6 +93,8 @@ CREATE TABLE problemSet   (
 
 
 -- sample data insert statements
+INSERT INTO accounts (username, hashedpass) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle');
+
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1210', '40', '');
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1110', '70', '');
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1020', '55', '');
