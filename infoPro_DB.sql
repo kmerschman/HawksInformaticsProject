@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS sessionSchedule;
 DROP TABLE IF EXISTS tutor;
 DROP TABLE IF EXISTS course;
+DROP TABLE IF EXISTS accounts;
 
 
 CREATE TABLE accounts (
@@ -61,7 +62,7 @@ CREATE TABLE tutorSession   (
         studentCancel           CHAR(1),
         tutorCancel             CHAR(1),
         FOREIGN KEY (hawkidStudent) REFERENCES student(hawkidStudent),
-	      FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkidTutor),
+	FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkidTutor),
         FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
         PRIMARY KEY (session_id));
 
@@ -96,12 +97,13 @@ INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('C
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1110', '70', '');
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1020', '55', '');
 
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
+INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('kmerschman', 'CS:1210');
+INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('adanover', 'CS:1110');
+INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('kmbillings', 'CS:1020');
+
+INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, openSession) VALUES  ('1', '', 'CS:1210', 'Y');
+INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, openSession) VALUES  ('2', '', 'CS:1110', 'Y');
+INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, openSession) VALUES  ('3', '', 'CS:1020', 'N');
 
 INSERT INTO student  (hawkidStudent, courseNumber, tutorCreditsRemaining) VALUES  ('a', 'CS:1210', '20');
 INSERT INTO student  (hawkidStudent, courseNumber, tutorCreditsRemaining) VALUES  ('b', 'CS:1110', '60');
@@ -112,28 +114,24 @@ INSERT INTO student  (hawkidStudent, courseNumber, tutorCreditsRemaining) VALUES
 INSERT INTO student  (hawkidStudent, courseNumber, tutorCreditsRemaining) VALUES  ('g', 'CS:1110', '60');
 INSERT INTO student  (hawkidStudent, courseNumber, tutorCreditsRemaining) VALUES  ('h', 'CS:1210', '40');
 
-INSERT INTO faculty  (hawkidFaculty, courseNumber) VALUES  ('jphourcade', 'CS:1210');
-INSERT INTO faculty  (hawkidFaculty, courseNumber) VALUES  ('amsegre', 'CS:1020');
-INSERT INTO faculty  (hawkidFaculty, courseNumber) VALUES  ('rparida', 'CS:1110');
-
-INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, openSession) VALUES  ('1', '', 'CS:1210', 'Y');
-INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, openSession) VALUES  ('2', '', 'CS:1110', 'Y');
-INSERT INTO sessionSchedule  (session_id, sessionDateTime, courseNumber, openSession) VALUES  ('3', '', 'CS:1020', 'N');
-
 INSERT INTO tutorSession  (session_id, hawkidStudent, hawkidTutor, courseNumber, studentCancel, tutorCancel) VALUES  ('1', 'a', 'kmerschman', 'CS:1210', '', '');
 INSERT INTO tutorSession  (session_id, hawkidStudent, hawkidTutor, courseNumber, studentCancel, tutorCancel) VALUES  ('2', 'b', 'adanover', 'CS:1110', '', '');
 INSERT INTO tutorSession  (session_id, hawkidStudent, hawkidTutor, courseNumber, studentCancel, tutorCancel) VALUES  ('3', 'c', 'kmbillings', 'CS:1020', '', '');
 
-INSERT INTO tutorAvailability  (calendar_id, sessionDateTime) VALUES  ('1', '');
-INSERT INTO tutorAvailability  (calendar_id, sessionDateTime) VALUES  ('2', '');
-INSERT INTO tutorAvailability  (calendar_id, sessionDateTime) VALUES  ('3', '');
-INSERT INTO tutorAvailability  (calendar_id, sessionDateTime) VALUES  ('4', '');
-
-INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('kmerschman', 'CS:1210');
-INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('adanover', 'CS:1110');
-INSERT INTO tutor  (hawkidTutor, courseNumber) VALUES  ('kmbillings', 'CS:1020');
+INSERT INTO faculty  (hawkidFaculty, courseNumber) VALUES  ('jphourcade', 'CS:1210');
+INSERT INTO faculty  (hawkidFaculty, courseNumber) VALUES  ('amsegre', 'CS:1020');
+INSERT INTO faculty  (hawkidFaculty, courseNumber) VALUES  ('rparida', 'CS:1110');
 
 INSERT INTO admins  (hawkidAdmin) VALUES  ('kmerschman');
 INSERT INTO admins  (hawkidAdmin) VALUES  ('adanover');
 INSERT INTO admins  (hawkidAdmin) VALUES  ('kmbillings');
+
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
+INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
+
+
 
