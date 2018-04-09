@@ -1,10 +1,10 @@
 -- course table
+
 DROP TABLE IF EXISTS problemSet;
 DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS faculty;
 DROP TABLE IF EXISTS tutorSession;
 DROP TABLE IF EXISTS student;
-DROP TABLE IF EXISTS tutorAvailability;
 DROP TABLE IF EXISTS sessionSchedule;
 DROP TABLE IF EXISTS tutor;
 DROP TABLE IF EXISTS course;
@@ -34,12 +34,7 @@ CREATE TABLE sessionSchedule   (
         PRIMARY KEY (session_id));
 
 
--- tutorAvailability table
-CREATE TABLE tutorAvailability   (
-        calendar_id            VARCHAR(10) NOT NULL,
-        sessionDateTime        DATETIME NOT NULL,
-	      FOREIGN KEY (sessionDateTime) REFERENCES sessionSchedule(sessionDateTime),
-	      PRIMARY KEY (calendar_id));
+
 
 
 -- student table
@@ -59,8 +54,8 @@ CREATE TABLE tutorSession   (
         courseNumber            VARCHAR(6)  NOT NULL,
         studentCancel           CHAR(1),
         tutorCancel             CHAR(1),
-        FOREIGN KEY (hawkidStudent) REFERENCES student(hawkidStudent);
-	      FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkidTutor);
+        FOREIGN KEY (hawkidStudent) REFERENCES student(hawkidStudent),
+	      FOREIGN KEY (hawkidTutor) REFERENCES tutor(hawkidTutor),
         FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
         PRIMARY KEY (session_id));
 
