@@ -9,10 +9,10 @@ $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 
 $tablename = "faculty";
 
-// set up a query to get information on courses
+// set up a query to get information on faculty
 $query = "SELECT * FROM $tablename;";
 
-// run the query to get info on courses
+// run the query to get info on faculty
 $result = queryDB($query, $db);
 
 // assign results to an array we can then send back to whomever called
@@ -25,12 +25,12 @@ while ($currFaculty = nextTuple($result)) {
     $i++;
 }
 
-// put together a JSON object to send back the data on the courses
+// put together a JSON object to send back the data on the faculty
 $response = array();
 $response['status'] = 'success';
 
 // 'value' corresponds to response.data.value in data.soccer.controller.js
-// 'courses' corresponds to ng-repeat="player in data.courses | filter:query" in the index.html file
+// 'faculty' corresponds to ng-repeat="player in data.faculty | filter:query" in the index.html file
 $response['value']['faculty'] = $faculty;
 header('Content-Type: application/json');
 echo(json_encode($response));
