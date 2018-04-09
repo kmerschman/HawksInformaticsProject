@@ -92,6 +92,10 @@ CREATE TABLE problemSet   (
 
 
 -- sample data insert statements
+INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1210', '40', '');
+INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1110', '70', '');
+INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1020', '55', '');
+
 INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
 INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
 INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
@@ -133,6 +137,3 @@ INSERT INTO admins  (hawkidAdmin) VALUES  ('kmerschman');
 INSERT INTO admins  (hawkidAdmin) VALUES  ('adanover');
 INSERT INTO admins  (hawkidAdmin) VALUES  ('kmbillings');
 
-INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1210', '40', '');
-INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1110', '70', '');
-INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1020', '55', '');
