@@ -9,6 +9,11 @@ DROP TABLE IF EXISTS sessionSchedule;
 DROP TABLE IF EXISTS tutor;
 DROP TABLE IF EXISTS course;
 
+CREATE TABLE accounts (
+username VARCHAR(50) NOT NULL,
+hashedpass VARCHAR(255) NOT NULL,
+PRIMARY KEY (username));
+
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
 	      studentsEnrolled        VARCHAR(25) NOT NULL,
