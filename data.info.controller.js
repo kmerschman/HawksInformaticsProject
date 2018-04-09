@@ -1,11 +1,11 @@
 /*
- * Controller where we get the data on soccer infos
+ * Controller where we get the data
  */
 (function () {
     'use strict';
 
     // the 'soccer' part comes from the name of the app we created in soccer.module.js
-    var myApp = angular.module("informatics");
+    var myApp = angular.module("tutor");
 
     // 'dataControl' is used in the html file when defning the ng-controller attribute
     myApp.controller("dataControl", function($scope, $http, $window) {
@@ -19,16 +19,6 @@
                 $scope.data = response.data.value;
             }
                    );
-        /*
-        $scope.data = {
-            "infos":[
-                {"name":"Lionel Messi", "country":"Argentina", "club":"FC Barcelona", "video":"<iframe src='https://www.youtube.com/embed/E2MBCa_OFsY' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>", "videoid":"E2MBCa_OFsY"},
-                {"name":"Neymar Jr.", "country":"Brazil", "club":"Paris Saint Germain", "video":"<iframe src='https://www.youtube.com/embed/E2MBCa_OFsY' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>", "videoid":"E2MBCa_OFsY"},
-                {"name":"Gianluigi Buffon", "country":"Italy", "club":"Juventus", "video":"<iframe src='https://www.youtube.com/embed/U0XSU0wNiNw' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>", "videoid":"U0XSU0wNiNw"},
-                {"name":"Diego Godin", "country":"Uruguay", "club":"Atletico Madrid", "video":"<iframe src='https://www.youtube.com/embed/E2MBCa_OFsY' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>", "videoid":"E2MBCa_OFsY"}
-            ]
-        };
-        */
 
 
         /*
