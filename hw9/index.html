@@ -1,10 +1,10 @@
 <!doctype html>
 
 <!-- ng-app="soccer" defines the angular app that we are using. The name is defined under soccer.module.js -->
-<html lang="en" ng-app="soccer">
+<html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
-    <title>Great soccer players</title>
+    <title>Tutor Home Page</title>
 
     <!-- These are the links to bootstrap code -->
     <!-- we got the links from http://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
@@ -38,16 +38,16 @@
                 <!-- We are defining each "row" of data as player -->
                 <!-- | filter:query is used to filter the data based on the text entered in the input field above with ng-model="query[queryBy]", and using $scope.query and $score.queryBy variables defined in the controller -->
                 <!-- players in ng-repeat="player in data.players | filter:query" comes from $response['value']['players'] = $players; -->
-                <div class="card m-1" style="width: 18rem" ng-repeat="player in data.players | filter:query">
+                <div class="card m-1" style="width: 18rem" ng-repeat="player in data.tutors | filter:query">
                     
-                    <div ng-init="setEditMode(false, player);"></div>
+                    <div ng-init="setEditMode(false, tutor);"></div>
                     
                     
                     <!-- R E A D    M O D E -->
-                    <div ng-if="!getEditMode(player)">
+                    <div ng-if="!getEditMode(tutor)">
                         <!-- if we are here, it means that we are not in edit mode -->
                         <div class="card-header">
-                            {{player.name}}
+                            {{tutor}}
                         </div>
                     
                         <div class="card-body">
@@ -103,8 +103,8 @@
                                 </div>
 
 
-                                <button class="btn btn-primary" ng-click="editPlayer(editplayer)">Save</button>
-                                <button class="btn btn-primary" ng-click="setEditMode(false, player)">Cancel</button>
+                                <button class="btn btn-primary" ng-click="tutor(tutor)">Save</button>
+                                <button class="btn btn-primary" ng-click="setEditMode(false, tutor)">Cancel</button>
                             </div>
                         
                         </form>
