@@ -46,7 +46,7 @@
         $scope.menuHighlight = 0;
 
 
-        // function to send new information to the web api to which will add it to the database
+        // function to send new information to the web api which will add it to the database
         $scope.newinfo = function(infoDetails) {
           var infoupload = angular.copy(infoDetails);
 
@@ -157,6 +157,7 @@
             });
         };
 
+        // can create multiple instances of this function to add different data to respective tables
         // function to send new account information to web api to add it to the database
         $scope.login = function(accountDetails) {
           var accountupload = angular.copy(accountDetails);
