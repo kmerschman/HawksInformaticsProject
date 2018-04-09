@@ -11,10 +11,10 @@ DROP TABLE IF EXISTS course;
 DROP TABLE IF EXISTS accounts;
 
 
-CREATE TABLE accounts (
-username VARCHAR(50) NOT NULL,
-hashedpass VARCHAR(255) NOT NULL,
-PRIMARY KEY (username));
+CREATE TABLE account (
+        username VARCHAR(50) NOT NULL,
+        hashedpass VARCHAR(255) NOT NULL,
+        PRIMARY KEY (username));
 
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
@@ -93,7 +93,9 @@ CREATE TABLE problemSet   (
 
 
 -- sample data insert statements
-INSERT INTO accounts (username, hashedpass) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle');
+INSERT INTO account (username, hashedpass) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle');
+INSERT INTO account (username, hashedpass) VALUES ('kmerschman', '$2y$10$5YkfLoIRC1mLjpO8RSQKAuo431zsSmgRWaEwIAFhvlVFdl5tt8umi');
+
 
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1210', '40', '');
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1110', '70', '');
@@ -134,6 +136,3 @@ INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'w
 INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
 INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
 INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
-
-
-
