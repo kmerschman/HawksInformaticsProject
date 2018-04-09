@@ -29,7 +29,7 @@ while ($currTutor = nextTuple($result)) {
 $response = array();
 $response['status'] = 'success';
 
-// 'value' corresponds to response.data.value in data.soccer.controller.js
+// 'value' corresponds to response.data.value in data.info.controller.js
 // 'tutors' corresponds to ng-repeat="player in data.tutors | filter:query" in the index.html file
 $response['value']['tutors'] = $tutors;
 header('Content-Type: application/json');

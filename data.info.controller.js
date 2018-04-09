@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 
-    // the 'soccer' part comes from the name of the app we created in soccer.module.js
+    // the 'tutor' part comes from the name of the app we created in info.module.js
     var myApp = angular.module("tutor");
 
     // 'dataControl' is used in the html file when defning the ng-controller attribute
