@@ -3,16 +3,16 @@
  */
 (function () {
     'use strict';
-    
+
     // the 'soccer' part comes from the name of the app we created in soccer.module.js
     var myApp = angular.module("soccer");
-    
+
     // 'dataControl' is used in the html file when defning the ng-controller attribute
     myApp.controller("dataControl", function($scope, $http, $window) {
-        
+
         // define data for the app
         // in the html code we will refer to data.players. The data part comes from $scope.data, the players part comes from the JSON object below
-        
+
         $http.get('getplayers.php')
             .then(function(response) {
                 // response.data.value has value come from the getplayers.php file $response['value']['players'] = $players;
@@ -29,8 +29,8 @@
             ]
         };
         */
-        
-        
+
+
         /*
          *    Code for search bar
          *    With queryBy you can say which attribute you want to search under. For example if it is "name" it will only search under names. If you want to search under everything, then use "$"
@@ -39,17 +39,17 @@
          */
         $scope.query = {};
         $scope.queryBy = "$";
-            
+
         // this variable will hold the page number that should be highlighted in the menu bar
         // 0 is for index.html
         // 1 is for newplayer.html
         $scope.menuHighlight = 0;
-        
-        
+
+
         // function to send new player information to web api to add it to the database
         $scope.newPlayer = function(playerDetails) {
           var playerupload = angular.copy(playerDetails);
-          
+
           $http.post("newplayer.php", playerupload)
             .then(function (response) {
                if (response.status == 200) {
@@ -65,12 +65,12 @@
                }
             });
         };
-        
-        
+
+
         // function to delete a player. it receives the player's name and id and call a php web api to complete deletion from the database
         $scope.deletePlayer = function(name, id) {
             if (confirm("Are you sure you want to delete " + name + "?")) {
-          
+
                 $http.post("deleteplayer.php", {"id" : id})
                   .then(function (response) {
                      if (response.status == 200) {
@@ -88,11 +88,11 @@
                 );
             }
         };
-        
+
         // function to edit player data and send it to web api to edit the player in the database
         $scope.editPlayer = function(playerDetails) {
           var playerupload = angular.copy(playerDetails);
-          
+
           $http.post("editplayer.php", playerupload)
             .then(function (response) {
                if (response.status == 200) {
@@ -108,7 +108,7 @@
                }
             });
         };
-        
+
 
         /*
          * Set edit mode of a particular player
@@ -128,19 +128,19 @@
                 player.editMode = false;
             }
         };
-        
+
         /*
          * Gets the edit mode for a particular player
          */
         $scope.getEditMode = function(player) {
             return player.editMode;
         };
-        
-        
+
+
         // function to send new account information to web api to add it to the database
         $scope.newAccount = function(accountDetails) {
           var accountupload = angular.copy(accountDetails);
-          
+
           $http.post("newaccount.php", accountupload)
             .then(function (response) {
                if (response.status == 200) {
@@ -154,13 +154,13 @@
                } else {
                     alert('unexpected error');
                }
-            });                        
-        };        
-        
+            });
+        };
+
         // function to send new account information to web api to add it to the database
         $scope.login = function(accountDetails) {
           var accountupload = angular.copy(accountDetails);
-          
+
           $http.post("login.php", accountupload)
             .then(function (response) {
                if (response.status == 200) {
@@ -174,10 +174,10 @@
                } else {
                     alert('unexpected error');
                }
-            });                        
+            });
         };
-        
-        
+
+
         // function to log the user out
         $scope.logout = function() {
           $http.post("logout.php")
@@ -193,9 +193,9 @@
                } else {
                     alert('unexpected error');
                }
-            });                        
-        };             
-        
+            });
+        };
+
         // function to check if user is logged in
         $scope.checkifloggedin = function() {
           $http.post("isloggedin.php")
@@ -211,11 +211,11 @@
                } else {
                     alert('unexpected error');
                }
-            });                        
-        };       
+            });
+        };
 
-        
+
     });
-    
-    
+
+
 } )();
