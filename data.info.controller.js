@@ -37,10 +37,10 @@
 
 
         // function to send new information to the web api which will add it to the database
-        $scope.newinfo = function(infoDetails) {
-          var infoupload = angular.copy(infoDetails);
+        $scope.newstudent = function(studentDetails) {
+          var studentupload = angular.copy(studentDetails);
 
-          $http.post("newstudent.php", infoupload)
+          $http.post("newstudent.php", studentupload)
             .then(function (response) {
                if (response.status == 200) {
                     if (response.data.status == 'error') {
@@ -58,7 +58,7 @@
 
 
         // function to delete a info. it receives the info's name and id and call a php web api to complete deletion from the database
-        $scope.deleteinfo = function(name, id) {
+        $scope.deletestudent = function(name, id) {
             if (confirm("Are you sure you want to delete " + name + "?")) {
 
                 $http.post("deletestudent.php", {"id" : id})
@@ -80,10 +80,10 @@
         };
 
         // function to edit info data and send it to web api to edit the info in the database
-        $scope.editinfo = function(infoDetails) {
-          var infoupload = angular.copy(infoDetails);
+        $scope.editstudent = function(studentDetails) {
+          var studentupload = angular.copy(studentDetails);
 
-          $http.post("editstudent.php", infoupload)
+          $http.post("editstudent.php", studentupload)
             .then(function (response) {
                if (response.status == 200) {
                     if (response.data.status == 'error') {
@@ -105,25 +105,25 @@
          * on is true if we are setting edit mode to be on, false otherwise
          * info corresponds to the info for which we are setting an edit mode
          */
-        $scope.setEditMode = function(on, info) {
+        $scope.setEditMode = function(on, student) {
             if (on) {
                 // if info had a birth, for example, you'd include the line below
                 // info.birthyear = parseInt(info.birthyear);
                 // editinfo matches the ng-model used in the form we use to edit info information
-                $scope.editinfo = angular.copy(info);
-                info.editMode = true;
+                $scope.editstudent = angular.copy(student);
+                student.editMode = true;
             } else {
                 // if editinfo is null we assume no info is currently being edited
-                $scope.editinfo = null;
-                info.editMode = false;
+                $scope.editstudent = null;
+                student.editMode = false;
             }
         };
 
         /*
          * Gets the edit mode for a particular info
          */
-        $scope.getEditMode = function(info) {
-            return info.editMode;
+        $scope.getEditMode = function(student) {
+            return student.editMode;
         };
 
 
