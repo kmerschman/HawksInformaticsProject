@@ -31,7 +31,7 @@
     if ($isComplete) {   
 
         // get the hashed password from the user with the email that got entered
-        $query = "SELECT id, hashedpass FROM account WHERE username='$username';";
+        $query = "SELECT hashedpass FROM account WHERE username='$username';";
         $result = queryDB($query, $db);
 
         if (nTuples($result) == 0) {
@@ -46,7 +46,6 @@
 		// get the hashed password for that account
 		$row = nextTuple($result);
 		$hashedpass = $row['hashedpass'];
-		$id = $row['id'];
 
 		// compare entered password to the password on the database
         // $hashedpass is the version of hashed password stored in the database for $username
@@ -66,7 +65,6 @@
         // if the session variable 'username' is set, then we assume that the user is logged in
         session_start();
         $_SESSION['username'] = $username;
-		$_SESSION['accountid'] = $id;
 
         // send response back
         $response = array();
