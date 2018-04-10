@@ -15,7 +15,7 @@ CREATE TABLE account (
         id INT NOT NULL AUTO_INCREMENT,
         username VARCHAR(50) NOT NULL,
         hashedpass VARCHAR(255) NOT NULL,
-        PRIMARY KEY (username));
+        PRIMARY KEY (id));
 
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE sessionSchedule   (
 CREATE TABLE student   (
         hawkidStudent           VARCHAR(20) NOT NULL,
         courseNumber            VARCHAR(6) NOT NULL,
-	      tutorCreditsRemaining   INTEGER,
+	      tutorCreditsRemaining   INT,
         FOREIGN KEY (courseNumber) REFERENCES course(courseNumber),
         PRIMARY KEY (hawkidStudent));
 
@@ -84,7 +84,7 @@ CREATE TABLE admins   (
 
 -- problemSet table
 CREATE TABLE problemSet   (
-        problemNumber           INTEGER NOT NULL,
+        problemNumber           INT NOT NULL,
 	      question                VARCHAR(400) NOT NULL,
 	      courseNumber            VARCHAR(6),
         PRIMARY KEY (problemNumber));
