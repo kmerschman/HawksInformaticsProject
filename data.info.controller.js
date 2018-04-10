@@ -5,7 +5,7 @@
     'use strict';
 
     // the 'tutor' part comes from the name of the app we created in info.module.js
-    var myApp = angular.module("tutor");
+    var myApp = angular.module("Tutor");
 
     // 'dataControl' is used in the html file when defning the ng-controller attribute
     myApp.controller("dataControl", function($scope, $http, $window) {

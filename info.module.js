@@ -4,6 +4,6 @@
 */
 (function() {
     'use strict';
-    angular.module("tutor", []);
+    angular.module("Tutor", []);
 }
 )();

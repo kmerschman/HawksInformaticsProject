@@ -5,7 +5,7 @@
     'use strict';
 
     // the 'informatics' here matches the name of the app under info.module.js
-    var myApp = angular.module("tutor");
+    var myApp = angular.module("Tutor");
 
     // use use 'trustHtml' in the html file as the name of the filter
     myApp.filter("trustHtml", function($sce) {
