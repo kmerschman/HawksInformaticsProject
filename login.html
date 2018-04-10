@@ -37,29 +37,24 @@
 <!-- header -->
         <div ng-include ng-init="menuHighlight = 3;" src="'header.html'"></div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <h1>Log in</h1>
-    </div>
-</div>
-
-
 <!-- form to enter new pizzas -->
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12" align = "center" style = "padding-top: 50px">
+        <img src ="logoBlack.png" width = "200" height = "200" alt ="">
+        <h4 style = "padding-top: 50px">Login</h4>
 
         <form name="accountForm" novalidate>
 
             <!-- username for account -->
             <div class="form-group" ng-class="{ 'text-danger': accountForm.username.$invalid && accountForm.username.$touched, 'text-success': !accountForm.username.$invalid && accountForm.username.$touched }">
-                <label class="form-control-label" for="username">Username (at least 2 characters long): </label>
+                <label class="form-control-label" for="username">Hawkid: </label>
                 <input type="text" class="form-control" ng-class="{ 'is-invalid': accountForm.username.$invalid && accountForm.username.$touched, 'is-valid': !accountForm.username.$invalid && accountForm.username.$touched }" name="username" ng-model="account.username" ng-minlength="2" id="username" required/>
                 <div ng-show="accountForm.username.$invalid && accountForm.username.$touched" >The username must be at least two characters long</div>
             </div>
 
             <!-- password for account -->
             <div class="form-group" ng-class="{ 'text-danger': accountForm.password.$invalid && accountForm.password.$touched, 'text-success': !accountForm.password.$invalid && accountForm.password.$touched }">
-                <label class="form-control-label" for="password">Password (at least 6 characters long): </label>
+                <label class="form-control-label" for="password">Password: </label>
                 <input type="password" class="form-control" ng-class="{ 'is-invalid': accountForm.password.$invalid && accountForm.password.$touched, 'is-valid': !accountForm.password.$invalid && accountForm.password.$touched }" name="password" ng-model="account.password" ng-minlength="6" id="password" required/>
                 <div ng-show="accountForm.password.$invalid && accountForm.password.$touched" >The password must be at least six characters long</div>
             </div>
