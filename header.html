@@ -23,7 +23,7 @@
       </li>
 
       <!-- menu item for adding players, active if menuHighlight is equal to 1 -->
-      <li class="nav-item" ng-class="{'active' : (menuHighlight == 1)}">
+      <li class="nav-item" ng-class="{'active' : (menuHighlight == 1)}" ng-show="isloggedin">
         <a class="nav-link" href="newstudent.html">Add Student</a>
       </li>
 

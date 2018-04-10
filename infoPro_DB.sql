@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS account;
 
 
 CREATE TABLE account (
+        id INT NOT NULL AUTO_INCREMENT,
         username VARCHAR(50) NOT NULL,
         hashedpass VARCHAR(255) NOT NULL,
         PRIMARY KEY (username));
