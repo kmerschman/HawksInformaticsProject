@@ -4,7 +4,7 @@
 <html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
-    <title>New Faculty</title>
+    <title>New faculty</title>
 
     <!-- These are the links to bootstrap code -->
     <!-- we got the links from http://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
@@ -33,28 +33,30 @@
         <div ng-include ng-init="menuHighlight = 3;" src="'header.html'"></div>
 
 
-        <!-- form for entering new account -->
+        <!-- form for entering new faculty -->
         <div class="row">
 
 
-            <form  name="newAccountForm" novalidate>
+            <form  name="newfacultyForm" novalidate>
 
-                <!-- username for account -->
-                <div class="form-group" ng-class="{ 'text-danger': newAccountForm.username.$invalid && newAccountForm.username.$touched, 'text-success': !newAccountForm.username.$invalid && newAccountForm.username.$touched }">
-                    <label class="form-control-label" for="username">Username (at least 2 characters long): </label>
-                    <input type="text" class="form-control" ng-class="{ 'is-invalid': newAccountForm.username.$invalid && newAccountForm.username.$touched, 'is-valid': !newAccountForm.username.$invalid && newAccountForm.username.$touched }" name="username" ng-model="account.username" ng-minlength="2" id="username" required/>
-                    <div ng-show="newAccountForm.username.$invalid && newAccountForm.username.$touched" >The username must be at least two characters long</div>
+                <!-- hawkid of the faculty -->
+                <div class="form-group" ng-class="{ 'text-danger': newfacultyForm.name.$invalid && newfacultyForm.name.$touched, 'text-success': !newfacultyForm.name.$invalid && newfacultyForm.name.$touched }">
+                    <label class="form-control-label" for="hawkidfaculty">hawkid: </label>
+                    <input type="text" class="form-control" ng-class="{ 'is-invalid': newfacultyForm.name.$invalid && newfacultyForm.name.$touched, 'is-valid': !newfacultyForm.name.$invalid && newfacultyForm.name.$touched }" name="name" ng-model="faculty.hawkidfaculty" ng-minlength="2" id="hawkidfaculty" required/>
+                    <div ng-show="newfacultyForm.name.$invalid && newfacultyForm.name.$touched" >The faculty's hawkid must be at least two characters long</div>
                 </div>
 
-                <!-- password for account -->
-                <div class="form-group" ng-class="{ 'text-danger': newAccountForm.password.$invalid && newAccountForm.password.$touched, 'text-success': !newAccountForm.password.$invalid && newAccountForm.password.$touched }">
-                    <label class="form-control-label" for="password">Password (at least 6 characters long; may not include anything related to hawkeyes): </label>
-                    <input type="password" class="form-control" ng-class="{ 'is-invalid': newAccountForm.password.$invalid && newAccountForm.password.$touched, 'is-valid': !newAccountForm.password.$invalid && newAccountForm.password.$touched }" name="password" ng-model="account.password" ng-minlength="6" id="password" required/>
-                    <div ng-show="newAccountForm.password.$invalid && newAccountForm.password.$touched" >The password must be at least six characters long</div>
+                <!-- Course for the faculty -->
+                <!-- ng-class sets up the style for this element. You'll find a format of 'style': condition, 'style2': condition2 -->
+                <!-- notice in ng-class we are using the name of the form, and the name of the input element in the codition statements -->
+                <div class="form-group" ng-class="{ 'text-danger': newfacultyForm.courseNumber.$invalid && newfacultyForm.courseNumber.$touched, 'text-success': !newfacultyForm.courseNumber.$invalid && newfacultyForm.courseNumber.$touched}">
+                    <label>Course: </label>
+                    <input type="text" class="form-control" ng-class="{ 'is-invalid': newfacultyForm.courseNumber.$invalid && newfacultyForm.courseNumber.$touched, 'is-valid': !newfacultyForm.courseNumber.$invalid && newfacultyForm.courseNumber.$touched}" name="courseNumber" ng-model="faculty.courseNumber" ng-minlength="2" required/>
+                    <p ng-show="newfacultyForm.courseNumber.$invalid && newfacultyForm.courseNumber.$touched" >The faculty's course number must be at least two characters long</p>
                 </div>
 
-                <!-- newAccount is a function in the controller. account refers to the word we used under ng-model in the input fields -->
-                <button class="btn btn-default" ng-click="newAccount(account)" ng-disabled="newAccountForm.$invalid">Add Faculty</button>
+                <!-- newfaculty is a function in the controller. faculty refers to the word we used under ng-model in the input fields -->
+                <button class="btn btn-default" ng-click="newfaculty(faculty)" ng-disabled="newfacultyForm.$invalid">Add faculty</button>
             </form>
 
 
