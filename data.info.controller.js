@@ -13,7 +13,7 @@
         // define data for the app
         // in the html code we will refer to data.infos. The data part comes from $scope.data, the infos part comes from the JSON object below
 
-        $http.get('getinfos.php')
+        $http.get('getstudent.php')
             .then(function(response) {
                 // response.data.value has value come from the getinfos.php file $response['value']['infos'] = $infos;
                 $scope.data = response.data.value;
@@ -40,7 +40,7 @@
         $scope.newinfo = function(infoDetails) {
           var infoupload = angular.copy(infoDetails);
 
-          $http.post("newinfo.php", infoupload)
+          $http.post("newstudent.php", infoupload)
             .then(function (response) {
                if (response.status == 200) {
                     if (response.data.status == 'error') {
@@ -61,7 +61,7 @@
         $scope.deleteinfo = function(name, id) {
             if (confirm("Are you sure you want to delete " + name + "?")) {
 
-                $http.post("deleteinfo.php", {"id" : id})
+                $http.post("deletestudent.php", {"id" : id})
                   .then(function (response) {
                      if (response.status == 200) {
                           if (response.data.status == 'error') {
@@ -83,7 +83,7 @@
         $scope.editinfo = function(infoDetails) {
           var infoupload = angular.copy(infoDetails);
 
-          $http.post("editinfo.php", infoupload)
+          $http.post("editstudent.php", infoupload)
             .then(function (response) {
                if (response.status == 200) {
                     if (response.data.status == 'error') {
