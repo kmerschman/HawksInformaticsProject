@@ -15,11 +15,12 @@ CREATE TABLE account (
         id INT NOT NULL AUTO_INCREMENT,
         username VARCHAR(50) NOT NULL,
         hashedpass VARCHAR(255) NOT NULL,
+        role_id CHAR(1);
         PRIMARY KEY (id));
 
 CREATE TABLE course   (
         courseNumber            VARCHAR(6) NOT NULL,
-	      studentsEnrolled        VARCHAR(25) NOT NULL,
+	studentsEnrolled        VARCHAR(25) NOT NULL,
         courseDateTime          DATETIME NOT NULL,
 	      PRIMARY KEY (courseNumber));
 
@@ -94,8 +95,8 @@ CREATE TABLE problemSet   (
 
 
 -- sample data insert statements
-INSERT INTO account (username, hashedpass) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle');
-INSERT INTO account (username, hashedpass) VALUES ('kmerschman', '$2y$10$5YkfLoIRC1mLjpO8RSQKAuo431zsSmgRWaEwIAFhvlVFdl5tt8umi');
+INSERT INTO account (username, hashedpass, role_id) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'S');
+INSERT INTO account (username, hashedpass, role_id) VALUES ('kmerschman', '$2y$10$5YkfLoIRC1mLjpO8RSQKAuo431zsSmgRWaEwIAFhvlVFdl5tt8umi', 'F');
 
 
 INSERT INTO course  (courseNumber, studentsEnrolled, courseDateTime) VALUES  ('CS:1210', '40', '');
