@@ -149,18 +149,40 @@
 
         // can create multiple instances of this function to add different data to respective tables
         // function to send new account information to web api to add it to the database
+//        $scope.login = function(accountDetails) {
+//          var accountupload = angular.copy(accountDetails);
+//
+//          $http.post("login.php", accountupload)
+//            .then(function (response) {
+//               if (response.status == 200) {
+//                    if (response.data.status == 'error') {
+//                        alert('error: ' + response.data.message);
+//                    } else {
+//                        // successful
+//                        // send user back to home page
+//                        $window.location.href = "index.html";
+//                    }
+//               } else {
+//                    alert('unexpected error');
+//               }
+//            });
+//        };
+
         $scope.login = function(accountDetails) {
           var accountupload = angular.copy(accountDetails);
 
-          $http.post("login.php", accountupload)
+          $http.post("getLoginRole.php", accountupload)
             .then(function (response) {
                if (response.status == 200) {
                     if (response.data.status == 'error') {
                         alert('error: ' + response.data.message);
                     } else {
-                        // successful
-                        // send user back to home page
-                        $window.location.href = "index.html";
+                        if (response.data.role == 'S') {
+                            $window.location.href = 'studentHome.html'
+                        }
+                        else if (response.data.role == 'A') {
+                            $window.location.href = 'index.html'
+                        }
                     }
                } else {
                     alert('unexpected error');

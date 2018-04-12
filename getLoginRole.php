@@ -2,8 +2,7 @@
     include_once('config.php');
     include_once('dbutils.php');
 
-
-    // get data from form
+      // get data from form
     $data = json_decode(file_get_contents('php://input'), true);
     $username = $data['username'];
     $password = $data['password'];
@@ -31,7 +30,7 @@
     if ($isComplete) {   
 
         // get the hashed password from the user with the email that got entered
-        $query = "SELECT hashedpass FROM account WHERE username='$username';";
+        $query = "SELECT hashedpass, role_id FROM account WHERE username='$username';";
         $result = queryDB($query, $db);
 
         if (nTuples($result) == 0) {
@@ -55,37 +54,19 @@
             // if password is incorrect
             $errorMessage .= " The password you enterered is incorrect. ";
             $isComplete = false;
-        }
+           
+                }
+                $role = $row['role_id'];
     }
-
     if ($isComplete) {
-        // password was entered correctly
-
-        // start a session
-        // if the session variable 'username' is set, then we assume that the user is logged in
         session_start();
         $_SESSION['username'] = $username;
-
-        // send response back
+        $_SESSION["password"] = $mypassword;
+    
         $response = array();
         $response['status'] = 'success';
         $response['message'] = 'logged in';
-        header('Content-Type: application/json');
-        echo(json_encode($response));
-    } else {
-        // there's been an error. We need to report it to the angular controller.
-
-        // one of the things we want to send back is the data that his php file received
-        ob_start();
-        var_dump($data);
-        $postdump = ob_get_clean();
-
-        // set up our response array
-        $response = array();
-        $response['status'] = 'error';
-        $response['message'] = $errorMessage . $postdump;
+        $response['role'] = $role;
         header('Content-Type: application/json');
         echo(json_encode($response));
     }
-
-?>
