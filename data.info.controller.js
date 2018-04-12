@@ -183,6 +183,9 @@
                         else if (response.data.role == 'A') {
                             $window.location.href = 'index.html'
                         }
+                        else if (response.data.role == 'T') {
+                            $window.location.href = 'tutorHome.html'
+                        }
                     }
                } else {
                     alert('unexpected error');

@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- link to angular -->
     <!-- you can download it from https://angularjs.org/ then you need to upload it to the webdev server. -->
     <script src="angular.min.js"></script>
@@ -31,7 +31,7 @@
     <div class="container" ng-controller="dataControl">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 0;" src="'header.html'"></div>
+        <div ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
         <div ng-show = "isloggedin">
             <h1>Student Homepage</h1>
         </div>
