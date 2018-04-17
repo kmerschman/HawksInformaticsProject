@@ -54,6 +54,7 @@ INSERT INTO account (username, hashedpass, role_id) VALUES ('kmerschman', '$2y$1
 INSERT INTO account (username, hashedpass, role_id) VALUES ('aldanover', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'T');
 INSERT INTO account (username, hashedpass, role_id) VALUES ('tutor1', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'T');
 INSERT INTO account (username, hashedpass, role_id) VALUES ('tutor2', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'T');
+INSERT INTO account (username, hashedpass, role_id) VALUES ('admin1', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'A');
 
 INSERT INTO courses (courseNumber) VALUES ('CS:1210');
 INSERT INTO courses (courseNumber) VALUES ('CS:1110');
