@@ -65,7 +65,7 @@
                             if (response.data.status == 'error') {
                                 alert('error: ' + response.data.message);
                             } else {
-                                $window.location.href = "studentHome.html";
+                                $window.location.href = "addSession.html";
                                 }
                         }
                     });
