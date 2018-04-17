@@ -22,6 +22,7 @@ CREATE TABLE studentCourse (
         id INT NOT NULL AUTO_INCREMENT,
         hawkid VARCHAR(50) NOT NULL,
         courseNumber VARCHAR(10) NOT NULL,
+        credits INT,
         FOREIGN KEY(hawkid) REFERENCES account(username),
         FOREIGN KEY(courseNumber) REFERENCES courses(courseNumber),
         PRIMARY KEY (id));
@@ -61,9 +62,9 @@ INSERT INTO courses (courseNumber) VALUES ('CS:1210');
 INSERT INTO courses (courseNumber) VALUES ('CS:1110');
 INSERT INTO courses (courseNumber) VALUES ('CS:1020');
 
-INSERT INTO studentCourse (hawkid, courseNumber) VALUES ('kmbillings', 'CS:1210');
-INSERT INTO studentCourse (hawkid, courseNumber) VALUES ('kmbillings', 'CS:1110');
-INSERT INTO studentCourse (hawkid, courseNumber) VALUES ('kmbillings', 'CS:1020');
+INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1210', 20);
+INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1110', 30);
+INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1020', 40);
 
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor1', 'CS:1210', 'Monday', '10:00 AM - 10:50 AM', NULL);
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor1', 'CS:1210', 'Tuesday', '2:00 PM - 2:50 PM', NULL);

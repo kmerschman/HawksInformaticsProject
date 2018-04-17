@@ -21,7 +21,7 @@
     <!-- soccer.module.js is where we define the angular app called 'soccer'. We use the name of the app in the html element at the top of the file -->
     <script src="info.module.js"></script>
     <!-- data.soccer.controller.js is where we are getting the data from. It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
-    <script src="data.info.controller.js"></script>
+    <script src="data.student.controller.js"></script>
     <!-- soccer.filter.js enables us to display html code -->
     <script src="info.filter.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
@@ -33,32 +33,15 @@
         <!-- header -->
         <div ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
         <div class = "row">
-            <h4>Student Homepage</h4>
-            <br>
-            <br>
-            <div class = "col-sm-12">
-                <table style="width:100%">
-                  <tr>
-                    <th>Tutor</th>
-                    <th>Course</th>
-                    <th>Day</th> 
-                    <th>Time</th>
-                    <th>Add</th>
-                  </tr>
-                  <tr ng-repeat = "slot in data.slots">
-                    <td>{{slot.hawkidTutor}}</td>
-                    <td>{{slot.courseNumber}}</td>
-                    <td>{{slot.weekday}}</td> 
-                    <td>{{slot.timeslot}}</td>
-                    <td><button ng-click = "addSession(slot.session_id)">Add Session</button></td>
-                  </tr>
-                </table>
+            <div class = "card; col-sm-6" ng-repeat = "credit in data.credits | filter:query">
+              <div class="card-body">
+                <h4 class="card-title">{{credit.courseNumber}} : {{credit.credits}}</h4>
+                <a href="#" class="btn btn-primary">See Course</a>
+              </div>
             </div>
+        
         </div>
-
-        <!-- Footer -->
-        <div ng-include src="'footer.html'"></div>
-
     </div>
+    <div ng-include src="'footer.html'"></div>
 </body>
 </html>
