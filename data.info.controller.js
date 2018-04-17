@@ -13,9 +13,9 @@
         // define data for the app
         // in the html code we will refer to data.infos. The data part comes from $scope.data, the infos part comes from the JSON object below
 
-        $http.get('getstudent.php')
+        $http.get('getTutorSlots.php')
             .then(function(response) {
-                // response.data.value has value come from the getinfos.php file $response['value']['infos'] = $infos;
+                // response.data.value has value come from the getinfos.php file $response['value']['slots'] = $slots;
                 $scope.data = response.data.value;
             }
                    );
@@ -54,6 +54,26 @@
                     alert('unexpected error');
                }
             });
+        };
+
+//function to add tutoring session 
+        $scope.addSession = function(session_id) {
+            if (confirm("Are you sure you want to add this session?")) {
+                
+                $http.post("addSession.php", {'session_id' : session_id})
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            if (response.data.status == 'error') {
+                                alert('error: ' + response.data.message);
+                            } else {
+                                $window.location.href = "studentHome.html";
+                                }
+                        }
+                    });
+            }else {
+                alert('unexpected error');
+               }
+            
         };
 
 
@@ -148,26 +168,7 @@
         };
 
         // can create multiple instances of this function to add different data to respective tables
-        // function to send new account information to web api to add it to the database
-//        $scope.login = function(accountDetails) {
-//          var accountupload = angular.copy(accountDetails);
-//
-//          $http.post("login.php", accountupload)
-//            .then(function (response) {
-//               if (response.status == 200) {
-//                    if (response.data.status == 'error') {
-//                        alert('error: ' + response.data.message);
-//                    } else {
-//                        // successful
-//                        // send user back to home page
-//                        $window.location.href = "index.html";
-//                    }
-//               } else {
-//                    alert('unexpected error');
-//               }
-//            });
-//        };
-
+        // function to login
         $scope.login = function(accountDetails) {
           var accountupload = angular.copy(accountDetails);
 

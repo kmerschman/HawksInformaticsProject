@@ -4,7 +4,7 @@
 <html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
-    <title>Tutor DB Home Page</title>
+    <title>Add Tutoring Session</title>
 
     <!-- These are the links to bootstrap code -->
     <!-- we got the links from http://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
@@ -31,11 +31,8 @@
     <div class="container" ng-controller="dataControl">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
+        <div ng-include ng-init="menuHighlight = 1;" src="'studentHeader.html'"></div>
         <div class = "row">
-            <h4>Student Homepage</h4>
-            <br>
-            <br>
             <div class = "col-sm-12">
                 <table style="width:100%">
                   <tr>
