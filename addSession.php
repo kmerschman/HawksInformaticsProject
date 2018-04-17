@@ -9,7 +9,10 @@ $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 $data = json_decode(file_get_contents('php://input'), true);
 $session_id = $data['session_id'];
 
-$query = "UPDATE tutorSlots SET hawkidStudent = 'filled' WHERE session_id = $session_id;";
+session_start();
+$username = $_SESSION['username'];
+
+$query = "UPDATE tutorSlots SET hawkidStudent = '$username' WHERE session_id = $session_id;";
 queryDB($query, $db);
 $response = array();
 $response['status'] = 'success';
