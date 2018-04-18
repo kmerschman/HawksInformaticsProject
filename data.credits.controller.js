@@ -1,3 +1,4 @@
+
 /*
  * Controller where we get the data
  */
@@ -9,15 +10,10 @@
 
     // 'dataControl' is used in the html file when defning the ng-controller attribute
     myApp.controller("dataControl", function($scope, $http, $window) {
-
-        // define data for the app
-        // in the html code we will refer to data.infos. The data part comes from $scope.data, the infos part comes from the JSON object below
-
-        $http.get('getTutorSlots.php')
-            .then(function(response) {
-                // response.data.value has value come from the getinfos.php file $response['value']['slots'] = $slots;
-                $scope.data = response.data.value;
-            }
+        $http.get('getCredits.php')
+                    .then(function(response) {
+                        $scope.data = response.data.value;
+                    }
                    );
  
         /*
@@ -65,7 +61,7 @@
                             if (response.data.status == 'error') {
                                 alert('error: ' + response.data.message);
                             } else {
-                                $window.location.href = "addSession.html";
+                                $window.location.href = "studentHome.html";
                                 }
                         }
                     });
@@ -74,8 +70,6 @@
                }
             
         };
-
-        
 
 
         // function to delete a info. it receives the info's name and id and call a php web api to complete deletion from the database

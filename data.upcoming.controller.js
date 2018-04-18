@@ -1,3 +1,4 @@
+
 /*
  * Controller where we get the data
  */
@@ -9,29 +10,15 @@
 
     // 'dataControl' is used in the html file when defning the ng-controller attribute
     myApp.controller("dataControl", function($scope, $http, $window) {
-
-        // define data for the app
-        // in the html code we will refer to data.infos. The data part comes from $scope.data, the infos part comes from the JSON object below
-
-        $http.get('getTutorSlots.php')
-            .then(function(response) {
-                // response.data.value has value come from the getinfos.php file $response['value']['slots'] = $slots;
-                $scope.data = response.data.value;
-            }
+        $http.get('getUpcoming.php')
+                    .then(function(response) {
+                        $scope.data = response.data.value;
+                    }
                    );
- 
-        /*
-         *    Code for search bar
-         *    With queryBy you can say which attribute you want to search under. For example if it is "name" it will only search under names. If you want to search under everything, then use "$"
-         *    We are assuming there is an input element with an ng-model="query[queryBy]"
-         *    We are also assuming that you are filtering through this query when you get data under ng-repeat
-         */
+
         $scope.query = {};
         $scope.queryBy = "$";
 
-        // this variable will hold the page number that should be highlighted in the menu bar
-        // 0 is for index.html
-        // 1 is for newinfo.html
         $scope.menuHighlight = 0;
 
 
@@ -55,27 +42,6 @@
             });
         };
 
-//function to add tutoring session 
-        $scope.addSession = function(session_id) {
-            if (confirm("Are you sure you want to add this session?")) {
-                
-                $http.post("addSession.php", {'session_id' : session_id})
-                    .then(function (response) {
-                        if (response.status == 200) {
-                            if (response.data.status == 'error') {
-                                alert('error: ' + response.data.message);
-                            } else {
-                                $window.location.href = "addSession.html";
-                                }
-                        }
-                    });
-            }else {
-                alert('unexpected error');
-               }
-            
-        };
-
-        
 
 
         // function to delete a info. it receives the info's name and id and call a php web api to complete deletion from the database

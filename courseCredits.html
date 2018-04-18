@@ -4,7 +4,7 @@
 <html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
-    <title>Tutor DB Home Page</title>
+    <title>Course Credits</title>
 
     <!-- These are the links to bootstrap code -->
     <!-- we got the links from http://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- link to angular -->
     <!-- you can download it from https://angularjs.org/ then you need to upload it to the webdev server. -->
     <script src="angular.min.js"></script>
@@ -21,7 +21,7 @@
     <!-- soccer.module.js is where we define the angular app called 'soccer'. We use the name of the app in the html element at the top of the file -->
     <script src="info.module.js"></script>
     <!-- data.soccer.controller.js is where we are getting the data from. It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
-    <script src="data.info.controller.js"></script>
+    <script src="data.credits.controller.js"></script>
     <!-- soccer.filter.js enables us to display html code -->
     <script src="info.filter.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
@@ -31,94 +31,17 @@
     <div class="container" ng-controller="dataControl">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 0;" src="'header.html'"></div>
-        <div ng-show = "isloggedin">
-            <h1>Admin Homepage</h1>
+        <div ng-include ng-init="menuHighlight = 2;" src="'studentHeader.html'"></div>
+        <div class = "row">
+            <div class = "card; col-sm-6" ng-repeat = "credit in data.credits | filter:query">
+              <div class="card-body">
+                <h4 class="card-title">{{credit.courseNumber}} : {{credit.credits}}</h4>
+                <a href="#" class="btn btn-primary">See Course</a>
+              </div>
+            </div>
+        
         </div>
-
-
-    <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial;}
-
-
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
-/* Style the close button */
-.topright {
-    float: right;
-    cursor: pointer;
-    font-size: 28px;
-}
-
-.topright:hover {color: black;}
-</style>
-</head>
-<body>
-
-
-<div class="tab" ng-show = "isloggedin">
-  <button class="tablinks" onclick="open(event, 'Faculty')" id="defaultOpen">Faculty</button>
-  <button class="tablinks" onclick="open(event, 'Tutors')">Tutors</button>
-  <button class="tablinks" onclick="open(event, 'Students')">Students</button>
-</div>
-
-<div id="Faculty" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Faculty</h3>
-  <p>Faculty info</p>
-</div>
-
-<div id="Tutors" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Tutors</h3>
-  <p>Tutors info.</p>
-</div>
-
-<div id="Students" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Students</h3>
-  <p>Students info.</p>
-</div>
-
-
+    </div>
+    <div ng-include src="'footer.html'"></div>
 </body>
 </html>
