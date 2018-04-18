@@ -63,3 +63,13 @@ th {
     color: white;
     border-bottom: solid black;
 }
+.btn-primary {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.btn-primary:hover {
+    background-color: #cccccc;
+    border-color: #cccccc;
+}

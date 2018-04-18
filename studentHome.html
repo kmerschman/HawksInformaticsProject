@@ -28,15 +28,13 @@
 </head>
 <body>
     <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.soccer.controller.js -->
-    <div class="container" ng-controller="upcomingStudentSlots">
+    <div class="container">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
-        <div class = "row">
-            <h4>Upcoming Appointments</h4>
-        </div>
+        <div ng-controller="upcomingStudentSlots" ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
         <div class="row">
-            <div class = "col-sm-6">
+            <div class = "col-sm-6" ng-controller="upcomingStudentSlots">
+                <h2>Upcoming Appointments</h2>
                 <table>
                   <tr>
                     <th>Tutor</th>
@@ -50,11 +48,21 @@
                     <td>{{session.courseNumber}}</td>
                     <td>{{session.weekday}}</td> 
                     <td>{{session.timeslot}}</td>
-                    <td><button ng-click = "cancelSession(session.session_id)">Cancel Session</button></td>
+                    <td><button class = "btn btn-primary" ng-click = "cancelSession(session.session_id)">Cancel Session</button></td>
                   </tr>
                 </table>
             </div>
+            <div class ="col-sm-6" ng-controller="dataControl">
+                <h2>Tutor Credits Remaining</h2>
+                <div class = "card" ng-repeat = "credit in data.credits | filter:query" style = "width: 50%; display: inline-block;">
+                  <div class="card-body">
+                    <h4>{{credit.courseNumber}} : {{credit.credits}}</h4>
+                    <a href="#" class="btn btn-primary">See Course</a>
+                  </div>
+                </div>
+            </div>
         </div>
+    </div>
     <div ng-include src="'footer.html'"></div>
 </body>
 </html>
