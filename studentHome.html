@@ -21,14 +21,14 @@
     <!-- soccer.module.js is where we define the angular app called 'soccer'. We use the name of the app in the html element at the top of the file -->
     <script src="info.module.js"></script>
     <!-- data.soccer.controller.js is where we are getting the data from. It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
-    <script src="data.upcoming.controller.js"></script>
+    <script src="data.info.controller.js"></script>
     <!-- soccer.filter.js enables us to display html code -->
     <script src="info.filter.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.soccer.controller.js -->
-    <div class="container" ng-controller="dataControl">
+    <div class="container" ng-controller="upcomingStudentSlots">
 
         <!-- header -->
         <div ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
