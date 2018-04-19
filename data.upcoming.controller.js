@@ -154,6 +154,9 @@
                         else if (response.data.role == 'T') {
                             $window.location.href = 'tutorHome.html'
                         }
+                        else if (response.data.role == 'F') {
+                            $window.location.href = 'facultyHome.html'
+                        }
                     }
                } else {
                     alert('unexpected error');

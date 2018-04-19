@@ -15,7 +15,7 @@
                         $scope.data = response.data.value;
                     }
                    );
- 
+
         /*
          *    Code for search bar
          *    With queryBy you can say which attribute you want to search under. For example if it is "name" it will only search under names. If you want to search under everything, then use "$"
@@ -51,10 +51,10 @@
             });
         };
 
-//function to add tutoring session 
+//function to add tutoring session
         $scope.addSession = function(session_id) {
             if (confirm("Are you sure you want to add this session?")) {
-                
+
                 $http.post("addSession.php", {'session_id' : session_id})
                     .then(function (response) {
                         if (response.status == 200) {
@@ -68,7 +68,7 @@
             }else {
                 alert('unexpected error');
                }
-            
+
         };
 
 
@@ -181,6 +181,9 @@
                         }
                         else if (response.data.role == 'T') {
                             $window.location.href = 'tutorHome.html'
+                        }
+                        else if (response.data.role == 'F') {
+                            $window.location.href = 'facultyHome.html'
                         }
                     }
                } else {

@@ -4,7 +4,7 @@
 <html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
-    <title>Tutor DB - Student Home</title>
+    <title>Tutor DB - Faculty Home</title>
 
     <!-- These are the links to bootstrap code -->
     <!-- we got the links from http://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
@@ -28,33 +28,10 @@
 </head>
 <body>
     <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.soccer.controller.js -->
-    <div class="container" ng-controller="upcomingTutorSlots">
+    <div class="container">
 
-        <!-- header -->
-        <div ng-include ng-init="menuHighlight = 0;" src="'tutorHeader.html'"></div>
-        <div class = "row">
-            <h4>Upcoming Appointments</h4>
-        </div>
-        <div class="row">
-            <div class = "col-sm-6">
-                <table>
-                  <tr>
-                    <th>Course</th>
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Student</th>
-                    <th>Cancel</th>
-                  </tr>
-                  <tr ng-repeat = "session in data.sessions">
-                    <td>{{session.courseNumber}}</td>
-                    <td>{{session.weekday}}</td>
-                    <td>{{session.timeslot}}</td>
-                    <td>{{session.hawkidStudent}}</td>
-                    <td><button ng-click = "cancelSessionTutor(session.session_id)">Cancel Session</button></td>
-                  </tr>
-                </table>
-            </div>
-        </div>
+
+    </div>
     <div ng-include src="'footer.html'"></div>
 </body>
 </html>
