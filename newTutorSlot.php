@@ -52,6 +52,14 @@ if ($isComplete) {
         $errorMessage .= "$hawkidTutor already has a time slot for $courseNumber on $weekday at $timeslot.";
     }
 }
+if ($isComplete) {
+    $query = "SELECT * FROM courses WHERE courseNumber = '$courseNumber';";
+    $result = queryDB($query, $db);
+    
+    if (nTuples($result) == 0) {
+        $errorMessage .= "$hawkidTutor is not authorized to tutor course $courseNumber.";
+    }
+}
 
 if ($isComplete) {
     $insertquery = "INSERT INTO tutorSlots(hawkidTutor, courseNumber, weekday, timeslot) VALUES ('$hawkidTutor', '$courseNumber', '$weekday', '$timeslot')";
