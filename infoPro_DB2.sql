@@ -18,6 +18,15 @@ CREATE TABLE courses   (
         courseNumber VARCHAR(10) NOT NULL,
 	PRIMARY KEY (courseNumber));
 
+
+CREATE TABLE facultyCourse (
+        id INT NOT NULL AUTO_INCREMENT,
+        hawkid VARCHAR(50) NOT NULL,
+        courseNumber VARCHAR(10),
+        FOREIGN KEY(hawkid) REFERENCES account(username),
+        FOREIGN KEY(courseNumber) REFERENCES courses(courseNumber),
+        PRIMARY KEY (id));
+
 CREATE TABLE studentCourse (
         id INT NOT NULL AUTO_INCREMENT,
         hawkid VARCHAR(50) NOT NULL,
@@ -43,6 +52,7 @@ CREATE TABLE problemSet   (
         problemNumber           INT NOT NULL,
 	question                VARCHAR(400) NOT NULL,
 	courseNumber            VARCHAR(6),
+        FOREIGN KEY (courseNumber) REFERENCES courses(courseNumber),
         PRIMARY KEY (problemNumber));
 
 
