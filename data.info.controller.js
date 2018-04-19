@@ -75,7 +75,7 @@
                     
     });
     
-    myApp.controller("studentAddSlots", function($scope, $http, $window) {
+    myApp.controller("addSlots", function($scope, $http, $window) {
         $http.get('getTutorSlots.php')
             .then(function(response) {
                 // response.data.value has value come from the getinfos.php file $response['value']['slots'] = $slots;
@@ -162,6 +162,24 @@
                 alert('unexpected error');
             }
             
+        };
+
+        $scope.newSlot = function(slotDetails) {
+            var slotupload = angular.copy(slotDetails);
+          
+            $http.post("newTutorSlot.php", slotDetails)
+            .then(function (response) {
+               if (response.status === 200) {
+                    if (response.data.status === 'error') {
+                        alert('error: ' + response.data.message);
+                    } else {
+
+                        $window.location.href = "tutorHome.html";
+                    }
+               } else {
+                    alert('unexpected error');
+               }
+            });
         };
         
     });
