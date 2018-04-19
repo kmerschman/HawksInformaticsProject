@@ -12,8 +12,12 @@ $session_id = $data['session_id'];
 session_start();
 $username = $_SESSION['username'];
 
-$query = "UPDATE tutorSlots SET hawkidStudent = '$username' WHERE session_id = $session_id;";
+$query = "UPDATE tutorSlots SET hawkidStudent = '$username' WHERE session_id = '$session_id';";
 queryDB($query, $db);
+
+$query1 = "UPDATE studentCourse SET credits = (credits - 1) WHERE hawkid = '$username' AND courseNumber = (SELECT tutorSlots.courseNumber FROM tutorSlots WHERE session_id = '$session_id');";
+queryDB($query1, $db);
+
 $response = array();
 $response['status'] = 'success';
 header('Content-Type: application/json');

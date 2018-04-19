@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS problemSet;
 DROP TABLE IF EXISTS tutorSlots;
 DROP TABLE IF EXISTS studentCourse;
+DROP TABLE IF EXISTS facultyCourse;
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS account;
 
@@ -51,8 +52,6 @@ CREATE TABLE tutorSlots (
 CREATE TABLE problemSet   (
         problemNumber           INT NOT NULL,
 	question                VARCHAR(400) NOT NULL,
-	courseNumber            VARCHAR(6),
-        FOREIGN KEY (courseNumber) REFERENCES courses(courseNumber),
         PRIMARY KEY (problemNumber));
 
 
@@ -83,9 +82,9 @@ INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStud
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor2', 'CS:1020', 'Wednesday', '11:00 AM - 11:50 AM', NULL);
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor2', 'CS:1110', 'Tuesday', '12:00 PM - 12:50 PM', NULL);
 
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
-INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
+-- INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('1', 'what is 2 + 2?', 'CS:1020');
+-- INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('2', 'what is the difference between python and ruby?', 'CS:1110');
+-- INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('3', 'what is javascript used for?', 'CS:1210');
+-- INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('4', 'what is 2 + 7?', 'CS:1110');
+-- INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('5', 'what is the difference between html and html5?', 'CS:1210');
+-- INSERT INTO problemSet  (problemNumber, question, courseNumber) VALUES  ('6', 'what is the bootstrap used for?', 'CS:1020');
