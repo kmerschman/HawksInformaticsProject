@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <!-- ng-app="soccer" defines the angular app that we are using. The name is defined under soccer.module.js -->
 <html lang="en" ng-app="Tutor">
@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- link to angular -->
     <!-- you can download it from https://angularjs.org/ then you need to upload it to the webdev server. -->
     <script src="angular.min.js"></script>
@@ -26,17 +26,38 @@
     <script src="info.filter.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body id = "index">
+<body>
     <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.soccer.controller.js -->
-    <div class="container" ng-controller="dataControl">
-        <div ng-include ng-init="menuHighlight = 0;" src="'header.html'"></div>
-        <div class ="container" id = "textbox">
-            <h1><span>Welcome to TutorCS!</span></h1>
-            <p style = "padding-bottom: 75px"><span>Please log in to access your dashboard.</span></p>
-            <a href ="login.html" class ="btn btn-primary">Login</a>
+    <div class="container">
+
+        <!-- header -->
+        <div ng-controller="upcomingStudentSlots" ng-include ng-init="menuHighlight = 0;" src="'adminHeader.html'"></div>
+
+        <div ng-show = "isloggedin">
+                    <h1>Admin Homepage</h1>
+                </div>
+
+
+        <div class="tab" ng-show = "isloggedin">
+          <button class="tablinks" onclick="open(event, 'Faculty')" id="defaultOpen">Faculty</button>
+          <button class="tablinks" onclick="open(event, 'Tutors')">Tutors</button>
+          <button class="tablinks" onclick="open(event, 'Students')">Students</button>
         </div>
-    </div>
 
+        <div id="Faculty" class="tabcontent">
+          <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+          <h3>Faculty</h3>
+          <p>Faculty info</p>
+        </div>
 
-</body>
-</html>
+        <div id="Tutors" class="tabcontent">
+          <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+          <h3>Tutors</h3>
+          <p>Tutors info.</p>
+        </div>
+
+        <div id="Students" class="tabcontent">
+          <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+          <h3>Students</h3>
+          <p>Students info.</p>
+        </div>
