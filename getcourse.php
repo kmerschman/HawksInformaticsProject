@@ -7,7 +7,7 @@ include_once('dbutils.php');
 // get a connection to the database
 $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 
-$tablename = "course";
+$tablename = "courses";
 
 // set up a query to get information on courses
 $query = "SELECT * FROM $tablename;";

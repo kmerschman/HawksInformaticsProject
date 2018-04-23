@@ -17,6 +17,7 @@ CREATE TABLE account (
 
 CREATE TABLE courses   (
         courseNumber VARCHAR(10) NOT NULL,
+        courseSite VARCHAR(200) NOT NULL,
 	PRIMARY KEY (courseNumber));
 
 
@@ -70,13 +71,14 @@ INSERT INTO account (username, hashedpass, role_id) VALUES ('admin1', '$2a$12$ZH
 INSERT INTO account (username, hashedpass, role_id) VALUES ('student1', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'S');
 INSERT INTO account (username, hashedpass, role_id) VALUES ('faculty1', '$2b$10$ZjCQY5THZ0uvSvGFIEMSz.KuVJDmpawOwdUhqrXSrgsTsX3ur7rSy', 'F'); --password is informatics
 
-INSERT INTO courses (courseNumber) VALUES ('CS:1210');
-INSERT INTO courses (courseNumber) VALUES ('CS:1110');
-INSERT INTO courses (courseNumber) VALUES ('CS:1020');
+INSERT INTO courses (courseNumber, courseSite) VALUES ('CS:1210', 'https://myui.uiowa.edu/my-ui/courses/details.page?_ticket=pnIq7SxbPdEHaknms2z-eR_B-2q8QW-i&id=859637&ci=158650');
+INSERT INTO courses (courseNumber, courseSite) VALUES ('CS:1110', 'https://myui.uiowa.edu/my-ui/courses/details.page?_ticket=JFGV31LvRR1m8tDnuBBevB_B-2q8QW-i&id=859633&ci=158649');
+INSERT INTO courses (courseNumber, courseSite) VALUES ('CS:1020', 'https://myui.uiowa.edu/my-ui/courses/details.page?_ticket=ilhW5UVVqWHIvlhQWoBzMBUlS3eSxOWK&id=861097&ci=149634');
 
 INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1210', 20);
 INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1110', 30);
 INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1020', 40);
+
 
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor1', 'CS:1210', 'Monday', '10:00 AM - 10:50 AM', NULL);
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor1', 'CS:1210', 'Tuesday', '2:00 PM - 2:50 PM', NULL);

@@ -39,14 +39,14 @@
                   <tr>
                     <th>Tutor</th>
                     <th>Course</th>
-                    <th>Day</th> 
+                    <th>Day</th>
                     <th>Time</th>
                     <th>Add</th>
                   </tr>
                   <tr ng-repeat = "session in data.sessions">
                     <td>{{session.hawkidTutor}}</td>
                     <td>{{session.courseNumber}}</td>
-                    <td>{{session.weekday}}</td> 
+                    <td>{{session.weekday}}</td>
                     <td>{{session.timeslot}}</td>
                     <td><a href = "#" class = "btn btn-primary" ng-click = "cancelSession(session.session_id)">Cancel Session</button></td>
                   </tr>
@@ -57,7 +57,12 @@
                 <div class = "card" ng-repeat = "credit in data.credits | filter:query" style = "width: 50%; display: inline-block;">
                   <div class="card-body">
                     <h4>{{credit.courseNumber}} : {{credit.credits}}</h4>
-                    <a href="#" class="btn btn-primary">See Course</a>
+                    <a href='#' class="btn btn-primary">See Course</a>
+                  </div>
+                </div>
+                <div class = "card" ng-repeat = "courseSite in data.courses | filter:query" style = "width: 50%; display: inline-block;">
+                  <div class="card-body">
+                    <a href={{courses.courseSite}} class="btn btn-warning">About Course</a>
                   </div>
                 </div>
             </div>

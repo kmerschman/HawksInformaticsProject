@@ -6,7 +6,7 @@ include_once('dbutils.php');
 
 $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 
-$query = "SELECT courseNumber, credits FROM studentCourse WHERE hawkid = 'kmbillings';";
+$query = "SELECT courseNumber, credits FROM studentCourse WHERE hawkid = 'kmbillings' OR hawkid = 'kmerschman'";
 
 $result = queryDB($query, $db);
 

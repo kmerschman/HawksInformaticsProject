@@ -24,7 +24,7 @@
                             $window.location.href = 'studentHome.html'
                         }
                         else if (response.data.role == 'A') {
-                            $window.location.href = 'index.html'
+                            $window.location.href = 'adminHome.html'
                         }
                         else if (response.data.role == 'T') {
                             $window.location.href = 'tutorHome.html'
@@ -100,7 +100,7 @@
                             $window.location.href = 'studentHome.html'
                         }
                         else if (response.data.role == 'A') {
-                            $window.location.href = 'index.html'
+                            $window.location.href = 'adminHome.html'
                         }
                         else if (response.data.role == 'T') {
                             $window.location.href = 'tutorHome.html'
@@ -210,7 +210,7 @@
                             $window.location.href = 'studentHome.html'
                         }
                         else if (response.data.role == 'A') {
-                            $window.location.href = 'index.html'
+                            $window.location.href = 'adminHome.html'
                         }
                         else if (response.data.role == 'T') {
                             $window.location.href = 'tutorHome.html'
@@ -301,7 +301,7 @@
                                 $window.location.href = 'studentHome.html'
                             }
                             else if (response.data.role == 'A') {
-                                $window.location.href = 'index.html'
+                                $window.location.href = 'adminHome.html'
                             }
                             else if (response.data.role == 'T') {
                                 $window.location.href = 'tutorHome.html'
