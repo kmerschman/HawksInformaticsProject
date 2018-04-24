@@ -12,7 +12,7 @@ $session_id = $data['session_id'];
 
 $query = "UPDATE tutorSlots SET hawkidStudent = NULL WHERE session_id = $session_id;";
 queryDB($query, $db);
-$query2 ="UPDATE studentCourse SET credits = (credits +1) WHERE courseNumber = (SELECT courseNumber FROM tutorSlot WHERE session_id = $session_id;);";
+$query2 ="UPDATE studentCourse SET credits = (credits +1) WHERE courseNumber = (SELECT courseNumber FROM tutorSlot WHERE session_id = $session_id);";
 queryDB($query2, $db);
 
 $response = array();
