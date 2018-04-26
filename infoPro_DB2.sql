@@ -52,7 +52,7 @@ CREATE TABLE tutorSlots (
 -- problemSet table
 CREATE TABLE problemSet   (
         problemNumber           INT NOT NULL,
-	question                VARCHAR(400) NOT NULL,
+	      question                VARCHAR(400) NOT NULL,
         courseNumber VARCHAR(10),
         FOREIGN KEY (courseNumber) REFERENCES courses (courseNumber),
         PRIMARY KEY (problemNumber));
