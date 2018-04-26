@@ -1,6 +1,6 @@
 <!doctype html>
 
-<!-- ng-app="soccer" defines the angular app that we are using. The name is defined under soccer.module.js -->
+<!-- ng-app="Tutor" defines the angular app that we are using. The name is defined under info.module.js -->
 <html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
@@ -18,16 +18,16 @@
     <script src="angular.min.js"></script>
 
     <!-- angular code we wrote -->
-    <!-- soccer.module.js is where we define the angular app called 'soccer'. We use the name of the app in the html element at the top of the file -->
+    <!-- info.module.js is where we define the angular app called 'Tutor'. We use the name of the app in the html element at the top of the file -->
     <script src="info.module.js"></script>
-    <!-- data.soccer.controller.js is where we are getting the data from. It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
+    <!-- data.info.controller.js is where we are getting the data from. It defines a controller under the 'Tutor' app called 'dataControl', and data is under $scope.data -->
     <script src="data.info.controller.js"></script>
-    <!-- soccer.filter.js enables us to display html code -->
+    <!-- info.filter.js enables us to display html code -->
     <script src="info.filter.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.soccer.controller.js -->
+    <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.info.controller.js -->
     <div class="container" ng-controller="addSlots">
 
         <!-- header -->
@@ -39,7 +39,7 @@
             <div class="col-sm-12" align = "center" style = "padding-top: 50px">
                 <h1>Add New Weekly Tutoring Slot</h1>
                 <form  name="newSlotForm" novalidate>
-                    
+
                     <div class="form-group" ng-class="{ 'text-danger': newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched, 'text-success': !newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched}">
                         <label>Course: </label>
                         <input type="text" class="form-control" ng-class="{ 'is-invalid': newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched, 'is-valid': !newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched}" name="courseNumber" ng-model="slot.courseNumber" ng-minlength="2" required/>
@@ -51,7 +51,7 @@
                         <input type="text" class="form-control" ng-class="{ 'is-invalid': newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched, 'is-valid': !newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched}" name="weekday" ng-model="slot.weekday" ng-minlength="2" required/>
                         <p ng-show="newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched" >The name of the day must be at least two characters long</p>
                     </div>
-                    
+
                     <div class="form-group" ng-class="{ 'text-danger': newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched, 'text-success': !newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched}">
                         <label>Time Slot: </label>
                         <input type="text" class="form-control" ng-class="{ 'is-invalid': newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched, 'is-valid': !newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched}" name="timeslot" ng-model="slot.timeslot" ng-minlength="2" required/>

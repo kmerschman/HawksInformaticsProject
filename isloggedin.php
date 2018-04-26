@@ -13,7 +13,7 @@
         $username = "not logged in";
     }
 
-    // send response back
+    // send response back as json object
     $response = array();
     $response['status'] = 'success';
     $response['loggedin'] = $isloggedin;

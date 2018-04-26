@@ -1,6 +1,6 @@
 <!doctype html>
 
-<!-- ng-app="soccer" defines the angular app that we are using. The name is defined under soccer.module.js -->
+<!-- ng-app="Tutor" defines the angular app that we are using. The name is defined under info.module.js -->
 <html lang="en" ng-app="Tutor">
 <head>
     <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
@@ -17,17 +17,17 @@
     <!-- you can download it from https://angularjs.org/ then you need to upload it to the webdev server. -->
     <script src="angular.min.js"></script>
 
-    <!-- angular code we wrote -->
-    <!-- soccer.module.js is where we define the angular app called 'soccer'. We use the name of the app in the html element at the top of the file -->
+    <!-- angular code -->
+    <!-- info.module.js is where we define the angular app called 'Tutor'. We use the name of the app in the html element at the top of the file -->
     <script src="info.module.js"></script>
-    <!-- data.soccer.controller.js is where we are getting the data from. It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
+    <!-- data.info.controller.js is where we are getting the data from. It defines a controller under the 'Tutor' app called 'dataControl', and data is under $scope.data -->
     <script src="data.info.controller.js"></script>
-    <!-- soccer.filter.js enables us to display html code -->
+    <!-- info.filter.js enables us to display html code -->
     <script src="info.filter.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.soccer.controller.js -->
+    <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.info.controller.js -->
     <div class="container" ng-controller="addSlots">
 
         <!-- header -->
@@ -38,14 +38,14 @@
                   <tr>
                     <th>Tutor</th>
                     <th>Course</th>
-                    <th>Day</th> 
+                    <th>Day</th>
                     <th>Time</th>
                     <th>Add</th>
                   </tr>
                   <tr ng-repeat = "slot in data.slots">
                     <td>{{slot.hawkidTutor}}</td>
                     <td>{{slot.courseNumber}}</td>
-                    <td>{{slot.weekday}}</td> 
+                    <td>{{slot.weekday}}</td>
                     <td>{{slot.timeslot}}</td>
                     <td><button class = "btn btn-primary" ng-click = "addSession(slot.session_id)">Add Session</button></td>
                   </tr>

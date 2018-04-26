@@ -23,14 +23,15 @@
         $username = makeStringSafe($db, $username);
     }
 
+    // check if password meets criteria
     if (!isset($password) || (strlen($password) < 6)) {
         $isComplete = false;
         $errorMessage .= "Please enter a password with at least six characters. ";
     }
 
-    if ($isComplete) {   
+    if ($isComplete) {
 
-        // get the hashed password from the user with the email that got entered
+        // get the hashed password from the user with the username that got entered
         $query = "SELECT hashedpass FROM account WHERE username='$username';";
         $result = queryDB($query, $db);
 
