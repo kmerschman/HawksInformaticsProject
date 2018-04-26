@@ -388,13 +388,13 @@
                         }
 
                     };
-                    myApp.controller("problemSet", function($scope, $http, $window) {
-                            $http.get('getproblemSet.php')
-                                .then(function(response) {
-                                    $scope.data = response.data.value;
-                                });
-                            $scope.menuHighlight = 0;
-                            }
-                });
+    myApp.controller("problemSet", function($scope, $http, $window) {
+      $http.get('getproblemSet.php')
+          .then(function(response) {
+              $scope.data = response.data.value;
+          });
+      $scope.menuHighlight = 0;
+      }
+});
 
 }) ();

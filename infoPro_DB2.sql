@@ -58,9 +58,6 @@ CREATE TABLE problemSet   (
         PRIMARY KEY (problemNumber));
 
 
-
-
-
 -- sample data insert statements
 INSERT INTO account (username, hashedpass, role_id) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'S');
 INSERT INTO account (username, hashedpass, role_id) VALUES ('kmerschman', '$2y$10$5YkfLoIRC1mLjpO8RSQKAuo431zsSmgRWaEwIAFhvlVFdl5tt8umi', 'A'); -- password is informaticsisrad
@@ -78,7 +75,6 @@ INSERT INTO courses (courseNumber, courseSite) VALUES ('CS:1020', 'https://myui.
 INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1210', 20);
 INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1110', 30);
 INSERT INTO studentCourse (hawkid, courseNumber, credits) VALUES ('kmbillings', 'CS:1020', 40);
-
 
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor1', 'CS:1210', 'Monday', '10:00 AM - 10:50 AM', NULL);
 INSERT INTO tutorSlots (hawkidTutor, courseNumber, weekday, timeslot, hawkidStudent) VALUES ('tutor1', 'CS:1210', 'Tuesday', '2:00 PM - 2:50 PM', NULL);
