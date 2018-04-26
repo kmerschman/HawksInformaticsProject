@@ -264,7 +264,7 @@
 
         $scope.cancelSession = function(session_id) {
             if (confirm("Are you sure you want to cancel this session?")) {
-                $http.post("cancelSession.php", {'session_id' : session_id}
+                $http.post("cancelSession.php", {'session_id' : session_id})
                     .then(function (response) {
                         if (response.status == 200) {
                             if (response.data.status == 'error') {
