@@ -31,7 +31,7 @@
     <div class="container" ng-controller="dataControl">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 2;" src="'studentHeader.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 2;" src="'studentHeader.html'"></div>
         <div class = "row">
             <div class = "card; col-sm-6" ng-repeat = "credit in data.credits | filter:query">
               <div class="card-body">
@@ -42,6 +42,6 @@
 
         </div>
     </div>
-    <div ng-include src="'footer.html'"></div>
+    <div id = "footer" ng-include src="'footer.html'"></div>
 </body>
 </html>

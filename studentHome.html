@@ -31,7 +31,7 @@
     <div class="container">
 
         <!-- header -->
-        <div ng-controller="upcomingStudentSlots" ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
+        <div id = "header" ng-controller="upcomingStudentSlots" ng-include ng-init="menuHighlight = 0;" src="'studentHeader.html'"></div>
         <div class="row">
             <div class = "col-sm-6" ng-controller="upcomingStudentSlots">
                 <h2>Upcoming Appointments</h2>
@@ -68,6 +68,6 @@
             </div>
         </div>
     </div>
-    <div ng-include src="'footer.html'"></div>
+    <div id = "footer" ng-include src="'footer.html'"></div>
 </body>
 </html>

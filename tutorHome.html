@@ -31,7 +31,7 @@
     <div class="container" ng-controller="upcomingTutorSlots">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 0;" src="'tutorHeader.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 0;" src="'tutorHeader.html'"></div>
         <div class = "row">
             <h4>Upcoming Appointments</h4>
         </div>
@@ -55,6 +55,6 @@
                 </table>
             </div>
         </div>
-    <div ng-include src="'footer.html'"></div>
+    <div id = "footer" ng-include src="'footer.html'"></div>
 </body>
 </html>

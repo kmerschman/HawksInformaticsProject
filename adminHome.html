@@ -31,7 +31,7 @@
     <div class="container">
 
         <!-- admin header -->
-        <div ng-controller="upcomingStudentSlots" ng-include ng-init="menuHighlight = 0;" src="'adminHeader.html'"></div>
+        <div id = "header" ng-controller="upcomingStudentSlots" ng-include ng-init="menuHighlight = 0;" src="'adminHeader.html'"></div>
 
         <div ng-show = "isloggedin">
                     <h1>Admin Homepage</h1>
@@ -61,3 +61,8 @@
           <h3>Students</h3>
           <p>Students info.</p>
         </div>
+    </div>
+            <!-- Footer -->
+    <div id = "footer" ng-include src="'footer.html'"></div>
+</body>
+</html>

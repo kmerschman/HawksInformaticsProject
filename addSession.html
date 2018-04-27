@@ -31,7 +31,7 @@
     <div class="container" ng-controller="addSlots">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 1;" src="'studentHeader.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 1;" src="'studentHeader.html'"></div>
         <div class = "row">
             <div class = "col-sm-12">
                 <table>
@@ -52,10 +52,9 @@
                 </table>
             </div>
         </div>
+    </div>
 
         <!-- Footer -->
-        <div ng-include src="'footer.html'"></div>
-
-    </div>
+    <div id = "footer" ng-include src="'footer.html'"></div>
 </body>
 </html>

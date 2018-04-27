@@ -29,7 +29,7 @@
 <body id = "index">
     <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.info.controller.js -->
     <div class="container" ng-controller="dataControl">
-        <div ng-include ng-init="menuHighlight = 0;" src="'header.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 0;" src="'header.html'"></div>
         <div class ="container" id = "textbox">
             <h1><span>Welcome to TutorCS!</span></h1>
             <p style = "padding-bottom: 75px"><span>Please log in to access your dashboard.</span></p>

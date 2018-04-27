@@ -31,7 +31,7 @@
     <div class="container" ng-controller="addSlots">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 1;" src="'tutorHeader.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 1;" src="'tutorHeader.html'"></div>
 
 
         <!-- form for entering new tutor -->
@@ -67,10 +67,8 @@
 
             </div>
         </div> <!-- close row -->
-
-        <!-- Footer -->
-        <div ng-include src="'footer.html'"></div>
-
     </div>
+    <!-- Footer -->
+    <div id = "footer" ng-include src="'footer.html'"></div>
 </body>
 </html>

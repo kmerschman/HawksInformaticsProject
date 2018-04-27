@@ -31,7 +31,7 @@
     <div class="container" ng-controller="dataControl">
 
         <!-- header -->
-        <div ng-include ng-init="menuHighlight = 3;" src="'header.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 3;" src="'header.html'"></div>
 
 
         <!-- form for entering new faculty -->
@@ -62,10 +62,8 @@
 
             </div>
         </div> <!-- close row -->
-
-        <!-- Footer -->
-        <div ng-include src="'footer.html'"></div>
-
     </div>
+    <!-- Footer -->
+    <div id = "footer" ng-include src="'footer.html'"></div>
 </body>
 </html>
