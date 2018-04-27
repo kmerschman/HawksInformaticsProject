@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    // the 'informatics' here matches the name of the app under info.module.js
+    // the 'Tutor' here matches the name of the app sepcified within info.module.js
     var myApp = angular.module("Tutor");
 
     // use use 'trustHtml' in the html file as the name of the filter

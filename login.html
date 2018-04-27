@@ -17,9 +17,9 @@
     <script src="angular.min.js"></script>
 
     <!-- angular code we wrote -->
-    <!-- soccer.module.js is where we define the angular app called 'soccer'. We use the name of the app in the html element at the top of the file -->
+    <!-- info.module.js is where we define the angular app called 'Tutor'. We use the name of the app in the html element at the top of the file -->
     <script src="info.module.js"></script>
-    <!-- data.soccer.controller.js is where we are getting the data from. It defines a controller under the 'soccer' app called 'dataControl', and data is under $scope.data -->
+    <!-- data.info.controller.js is where we are getting the data from. It defines a controller under the 'Tutor' app called 'dataControl', and data is under $scope.data -->
     <script src="data.info.controller.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 
@@ -37,7 +37,7 @@
 <!-- header -->
         <div ng-include ng-init="menuHighlight = 1;" src="'header.html'"></div>
 
-<!-- form to enter new pizzas -->
+<!-- form to enter account -->
 <div class="row">
     <div class="col-sm-12" align = "center" style = "padding-top: 50px">
         <img src ="logoBlack.png" width = "200" height = "200" alt ="">
@@ -58,7 +58,7 @@
                 <input type="password" class="form-control" ng-class="{ 'is-invalid': accountForm.password.$invalid && accountForm.password.$touched, 'is-valid': !accountForm.password.$invalid && accountForm.password.$touched }" name="password" ng-model="account.password" ng-minlength="6" id="password" required/>
                 <div ng-show="accountForm.password.$invalid && accountForm.password.$touched" >The password must be at least six characters long</div>
             </div>
-
+            <!-- this button will illuminate when constraints of the info dialogue have been satisfied -->
             <button class="btn btn-default" ng-click="login(account)" ng-disabled="accountForm.$invalid">Log in</button>
         </form>
     </div>

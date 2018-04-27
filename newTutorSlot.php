@@ -8,6 +8,7 @@ $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 
 $data = json_decode(file_get_contents('php://input'), true);
 
+// create a session based username of individual
 session_start();
 $hawkidTutor = $_SESSION['username'];
 $courseNumber = $data['courseNumber'];
@@ -18,7 +19,7 @@ $timeslot = $data['timeslot'];
 $isComplete = true;
 $errorMessage = "";
 
-//Check data
+//Check the data
 if (!isset($hawkidTutor) || (strlen($hawkidTutor) < 2)) {
     $isComplete = false;
     $errorMessage .= "Please enter a hawkidTutor with at least two characters. ";
@@ -42,11 +43,11 @@ if (!isset($hawkidTutor) || (strlen($hawkidTutor) < 2)) {
 }
 
 
-//Check table fo duplicates
+//Check the table for duplicates
 if ($isComplete) {
     $query = "SELECT hawkidTutor FROM tutorSlots WHERE hawkidTutor='$hawkidTutor' AND courseNumber='$courseNumber' AND weekday='$weekday' AND timeslot = '$timeslot';";
     $result = queryDB($query, $db);
-    
+
     if (nTuples($result) > 0) {
         $isComplete = false;
         $errorMessage .= "$hawkidTutor already has a time slot for $courseNumber on $weekday at $timeslot.";
@@ -55,7 +56,7 @@ if ($isComplete) {
 if ($isComplete) {
     $query = "SELECT * FROM courses WHERE courseNumber = '$courseNumber';";
     $result = queryDB($query, $db);
-    
+
     if (nTuples($result) == 0) {
         $errorMessage .= "$hawkidTutor is not authorized to tutor course $courseNumber.";
     }
@@ -63,16 +64,16 @@ if ($isComplete) {
 
 if ($isComplete) {
     $insertquery = "INSERT INTO tutorSlots(hawkidTutor, courseNumber, weekday, timeslot) VALUES ('$hawkidTutor', '$courseNumber', '$weekday', '$timeslot')";
-    
+
     queryDB($insertquery, $db);
 
     $session_id = mysqli_insert_id($db);
-    
+
     $response = array();
     $response['status'] = 'success';
     $response['session_id'] = $session_id;
     header('Content-Type: application/json');
-    echo(json_encode($response));    
+    echo(json_encode($response));
 } else {
 
     ob_start();
@@ -82,8 +83,7 @@ if ($isComplete) {
     $response['status'] = 'error';
     $response['message'] = $errorMessage . $postdump;
     header('Content-Type: application/json');
-    echo(json_encode($response));    
+    echo(json_encode($response));
 }
 
 ?>
-

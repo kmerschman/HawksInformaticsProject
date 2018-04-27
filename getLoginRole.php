@@ -21,13 +21,13 @@
     } else {
         $username = makeStringSafe($db, $username);
     }
-
+    // check if password meets criteria
     if (!isset($password) || (strlen($password) < 6)) {
         $isComplete = false;
         $errorMessage .= "Please enter a password with at least six characters. ";
     }
 
-    if ($isComplete) {   
+    if ($isComplete) {
 
         // get the hashed password from the user with the email that got entered
         $query = "SELECT hashedpass, role_id FROM account WHERE username='$username';";
@@ -54,7 +54,7 @@
             // if password is incorrect
             $errorMessage .= " The password you enterered is incorrect. ";
             $isComplete = false;
-           
+
                 }
                 $role = $row['role_id'];
     }
@@ -62,7 +62,7 @@
         session_start();
         $_SESSION['username'] = $username;
         $_SESSION["password"] = $mypassword;
-    
+
         $response = array();
         $response['status'] = 'success';
         $response['message'] = 'logged in';

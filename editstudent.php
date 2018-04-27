@@ -30,7 +30,7 @@ $errorMessage = "";
 // check if they are logged in
 session_start();
 if (!isset($_SESSION['username'])) {
-    // if the session variable username is not set, then the user is not logged in and should not edit the player
+    // if the session variable username is not set, then the user is not logged in and should not edit
     $isComplete = false;
     $errorMessage .= "User is not logged in.";
 }
@@ -65,9 +65,9 @@ if ($isComplete) {
     $video = makeStringSafe($db, $video);
 }
 
-// check if we already have a player with the same name, courseNumber, and tutorCreditsRemaining as the one we are processing (and is not the one we are processing)
+// check if we already have a student with the same hawkid, courseNumber, and tutorCreditsRemaining as the one we are processing (and is not the one we are processing)
 if ($isComplete) {
-    // set up a query to check if this player is in the database already
+    // set up a query to check if this student is in the database already
     $query = "SELECT hawkidStudent FROM student WHERE hawkidStudent='$hawkidStudent' AND courseNumber='$courseNumber' AND tutorCreditsRemaining='$tutorCreditsRemaining' AND id<>$id";
 
     // we need to run the query
@@ -75,7 +75,7 @@ if ($isComplete) {
 
     // check on the number of records returned
     if (nTuples($result) > 0) {
-        // if we get at least one record back it means the player is already in the database, so we have a duplicate
+        // if we get at least one record back it means the student is already in the database, so we have a duplicate
         $isComplete = false;
         $errorMessage .= "The student $hawkidStudent, from $courseNumber, with $tutorCreditsRemaining is already in the database. ";
     }
@@ -84,7 +84,7 @@ if ($isComplete) {
 
 // check if the id passed to this api corresponds to an existing record in the database
 if ($isComplete) {
-    // set up a query to check if this player is in the database already
+    // set up a query to check if this student is in the database already
     $query = "SELECT hawkidStudent FROM student WHERE id=$id";
 
     // we need to run the query
@@ -92,14 +92,14 @@ if ($isComplete) {
 
     // check on the number of records returned
     if (nTuples($result) == 0) {
-        // if we get no results it means the id we got does not correspond to any records in the soccerplayers table
+        // if we get no results it means the id we got does not correspond to any records in the student table
         $isComplete = false;
         $errorMessage .= "The id $id does not correspond to any students in the student table. ";
     }
 }
 
 
-// if we got this far and $isComplete is true it means we should edit the player in the database
+// if we got this far and $isComplete is true it means we should edit the student in the database
 if ($isComplete) {
     // we will set up the insert statement to add this new record to the database
     $updatequery = "UPDATE student SET hawkidStudent='$hawkidStudent', courseNumber='$courseNumber', tutorCreditsRemaining='$tutorCreditsRemaining', id=$id";

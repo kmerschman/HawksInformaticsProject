@@ -6,6 +6,7 @@
         // unsetting the username variable makes it so we assume that we are not logged in
         unset($_SESSION['username']);
     }
+    // end the session upon successful logout
     session_destroy();
 
     // send response back

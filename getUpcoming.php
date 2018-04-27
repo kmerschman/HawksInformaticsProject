@@ -4,10 +4,12 @@
 include_once('config.php');
 include_once('dbutils.php');
 
+// connect to the mysql db
 $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 session_start();
 $username = $_SESSION['username'];
 
+// se;ect the upcoming tutor slots available to enroll in as a student
 $query = "SELECT session_id, hawkidTutor, courseNumber, weekday, timeslot FROM tutorSlots WHERE hawkidStudent = '$username';";
 
 $result = queryDB($query, $db);
@@ -20,7 +22,7 @@ while ($thissession = nextTuple($result)) {
     $i++;
 };
 
-//create JSON object for movies
+//create JSON object for sessions
 $response = array();
 $response['status'] = 'success';
 $response['value']['sessions'] = $sessions;

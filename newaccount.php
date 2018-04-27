@@ -5,7 +5,7 @@ include_once('config.php');
 include_once('dbutils.php');
 
 
-// get a handle to the database
+// establish connection to the mysql database
 $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 
 // get data from the angular controller
@@ -15,7 +15,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 // get each piece of data
 
-// 
+//
 $username = $data['username'];
 $password = $data['password'];
 
@@ -47,21 +47,21 @@ if ($isComplete) {
     } else {
         $username = makeStringSafe($db, $username);
     }
-    
+    // check if password meets criteria
     if (!isset($password) || (strlen($password) < 6)) {
         $isComplete = false;
         $errorMessage .= "Please enter a password with at least six characters. ";
-    }  
+    }
 }
 
 // check if we already have a username that matches the one the user entered
 if ($isComplete) {
     // set up a query to check if this username is in the database already
     $query = "SELECT id FROM account WHERE username='$username'";
-    
-    // we need to run the query
+
+    // we need to run the query and assign it to a result variable
     $result = queryDB($query, $db);
-    
+
     // check on the number of records returned
     if (nTuples($result) > 0) {
         // if we get at least one record back it means the username is taken
@@ -74,36 +74,36 @@ if ($isComplete) {
 if ($isComplete) {
     // create a hashed version of the password
     $hashedpass = crypt($password, getSalt());
-    
+
     // we will set up the insert statement to add this new record to the database
     $insertquery = "INSERT INTO account(username, hashedpass) VALUES ('$username', '$hashedpass')";
-    
+
     // run the insert statement
     queryDB($insertquery, $db);
-    
+
     // get the id of the account we just entered
     $accountid = mysqli_insert_id($db);
-    
+
     // send a response back to angular
     $response = array();
     $response['status'] = 'success';
     $response['id'] = $accountid;
     header('Content-Type: application/json');
-    echo(json_encode($response));    
+    echo(json_encode($response));
 } else {
     // there's been an error. We need to report it to the angular controller.
-    
+
     // one of the things we want to send back is the data that his php file received
     ob_start();
     var_dump($data);
     $postdump = ob_get_clean();
-    
-    // set up our response array
+
+    // set up our response array as a json object
     $response = array();
     $response['status'] = 'error';
     $response['message'] = $errorMessage . $postdump;
     header('Content-Type: application/json');
-    echo(json_encode($response));    
+    echo(json_encode($response));
 }
 
 ?>

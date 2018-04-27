@@ -20,11 +20,10 @@ while ($thissession = nextTuple($result)) {
     $i++;
 };
 
-//create JSON object for movies
+//create JSON object for tutorsessions
 $response = array();
 $response['status'] = 'success';
 $response['value']['sessions'] = $sessions;
 header('Content-Type: application/json');
 echo(json_encode($response));
 ?>
-

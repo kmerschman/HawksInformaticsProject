@@ -1,5 +1,5 @@
 -- course table
-
+-- dropping all of the tables before re-adding them each time the sql code is ran through terminal upon upload
 DROP TABLE IF EXISTS problemSet;
 DROP TABLE IF EXISTS tutorSlots;
 DROP TABLE IF EXISTS studentCourse;
@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS facultyCourse;
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS account;
 
-
+-- account table
 CREATE TABLE account (
         id INT NOT NULL AUTO_INCREMENT,
         username VARCHAR(50) NOT NULL UNIQUE,
@@ -15,12 +15,13 @@ CREATE TABLE account (
         role_id VARCHAR(5),
         PRIMARY KEY (id));
 
+-- courses table
 CREATE TABLE courses   (
         courseNumber VARCHAR(10) NOT NULL,
         courseSite VARCHAR(200) NOT NULL,
 	PRIMARY KEY (courseNumber));
 
-
+-- faculty course table
 CREATE TABLE facultyCourse (
         id INT NOT NULL AUTO_INCREMENT,
         hawkid VARCHAR(50) NOT NULL,
@@ -29,6 +30,7 @@ CREATE TABLE facultyCourse (
         FOREIGN KEY(courseNumber) REFERENCES courses(courseNumber),
         PRIMARY KEY (id));
 
+-- student course table
 CREATE TABLE studentCourse (
         id INT NOT NULL AUTO_INCREMENT,
         hawkid VARCHAR(50) NOT NULL,
@@ -38,6 +40,7 @@ CREATE TABLE studentCourse (
         FOREIGN KEY(courseNumber) REFERENCES courses(courseNumber),
         PRIMARY KEY (id));
 
+-- tutor slots table
 CREATE TABLE tutorSlots (
         session_id INT NOT NULL AUTO_INCREMENT,
         hawkidTutor VARCHAR (50) NOT NULL,
@@ -58,7 +61,7 @@ CREATE TABLE problemSet   (
         PRIMARY KEY (problemNumber));
 
 
--- sample data insert statements
+-- sample data insert statements for the respective tables
 INSERT INTO account (username, hashedpass, role_id) VALUES ('kmbillings', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'S');
 INSERT INTO account (username, hashedpass, role_id) VALUES ('kmerschman', '$2y$10$5YkfLoIRC1mLjpO8RSQKAuo431zsSmgRWaEwIAFhvlVFdl5tt8umi', 'A'); -- password is informaticsisrad
 INSERT INTO account (username, hashedpass, role_id) VALUES ('aldanover', '$2a$12$ZHJ8LLXjYecuJhkDspA8o.kFUG9VvfaWX5w3JT7N/xXMuDWpSTIle', 'T');
