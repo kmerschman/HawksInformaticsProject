@@ -373,28 +373,29 @@
 
                 $scope.cancelSessionTutor = function(session_id) {
                     if (confirm("Are you sure you want to cancel this session?")) {
-                        $http.post("cancelSession.php", {'session_id' : session_id})
+                        $http.post("cancelSessionTutor.php", {'session_id' : session_id})
                             .then(function (response) {
                                 if (response.status == 200) {
                                     if (response.data.status == 'error') {
                                         alert('error: ' + response.data.message);
-                                    } else {
+                                    }else {
                                         $window.location.href = "tutorHome.html";
-                                        }
+                                    }
                                 }
                             });
-                        }else {
-                            alert('unexpected error');
-                        }
+                    }else {
+                        alert('unexpected error');
+                    }
 
-                    };
+                }
+            });
+            
     myApp.controller("problemSet", function($scope, $http, $window) {
-      $http.get('getproblemSet.php')
-          .then(function(response) {
-              $scope.data = response.data.value;
-          });
-      $scope.menuHighlight = 0;
-      }
-});
+        $http.get('getproblemSet.php')
+        .then(function(response) {
+            $scope.data = response.data.value;
+        });
+        $scope.menuHighlight = 0;
+    });
 
 }) ();

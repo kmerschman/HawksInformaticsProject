@@ -8,8 +8,7 @@ $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 session_start();
 $username = $_SESSION['username'];
 
-$query = "SELECT * FROM tutorSlots WHERE hawkidTutor = '$username' AND hawkidStudent IS NOT NULL;";
-
+$query = "SELECT * FROM tutorSlots WHERE hawkidTutor = '$username' AND hawkidStudent NOT IN (NULL OR 'Canceled');";
 $result = queryDB($query, $db);
 
 $sessions = array();
