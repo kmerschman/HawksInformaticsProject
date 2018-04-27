@@ -5,8 +5,10 @@ include_once('config.php');
 include_once('dbutils.php');
 
 $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
+session_start();
+$username = $_SESSION['username'];
 
-$query = "SELECT courseNumber, credits FROM studentCourse WHERE hawkid = 'kmbillings' OR hawkid = 'kmerschman'";
+$query = "SELECT courseNumber, credits FROM studentCourse WHERE hawkid = '$username';";
 
 $result = queryDB($query, $db);
 
