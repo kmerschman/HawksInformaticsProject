@@ -40,10 +40,14 @@
                 <h1>Add New Weekly Tutoring Slot</h1>
                 <form  name="newSlotForm" novalidate>
 
-                    <div class="form-group" ng-class="{ 'text-danger': newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched, 'text-success': !newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched}">
+                    <div class="form-group">
                         <label>Course: </label>
-                        <input type="text" class="form-control" ng-class="{ 'is-invalid': newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched, 'is-valid': !newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched}" name="courseNumber" ng-model="slot.courseNumber" ng-minlength="2" required/>
-                        <p ng-show="newSlotForm.courseNumber.$invalid && newSlotForm.courseNumber.$touched" >The tutor's course number must be at least two characters long</p>
+                        <select  class="form-control" name="courseNumber" ng-model="slot.courseNumber" required>
+                            <option value ="">Select Course Number</option>
+                            <option value ="CS:1020">CS:1020</option>
+                            <option value ="CS:1110">CS:1110</option>
+                            <option value ="CS:1210">CS:1210</option>
+                        </select>
                     </div>
 
                     <div class="form-group" ng-class="{ 'text-danger': newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched, 'text-success': !newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched}">
