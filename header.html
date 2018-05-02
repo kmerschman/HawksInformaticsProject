@@ -7,7 +7,7 @@
     </a>
         
 
-  <!-- definition of the buton you see if the screen is too small and you can't fit the full menu -->
+  <!-- definition of the button you see if the screen is too small and you cannot fit the full menu -->
   <!-- make sure the data-target and aria-controls match the div with the content you want to show -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
     <!-- mr-auto makes it so the next element will be aligned on the right side -->
     <ul class="navbar-nav mr-auto">
 
-        <!-- active only if menuHighlight is equal to 0 -->
+        <!-- active only if menu Highlight is equal to 0 -->
       <li class="nav-item" ng-class="{'active' : (menuHighlight == 0)}">
         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -29,7 +29,7 @@
 
     <!-- log in / log out -->
     <ul class="navbar-nav">
-      <!-- menu item for logging in, active if menuHighlight is equal to 5 -->
+      <!-- menu item for logging in, active if menu Highlight is equal to 5 -->
       <li class="nav-item" ng-class="{'active' : (menuHighlight == 1)}" ng-show="!isloggedin">
         <a class="nav-link" href="login.html">Log in</a>
       </li>
