@@ -48,15 +48,18 @@
                         <div ng-show="newAccountForm.username.$invalid && newAccountForm.username.$touched" >The username must be at least two characters long</div>
                     </div>
 
-                    <!-- password for account -->
-                    <div class="form-group" ng-class="{ 'text-danger': newAccountForm.password.$invalid && newAccountForm.password.$touched, 'text-success': !newAccountForm.password.$invalid && newAccountForm.password.$touched }">
-                        <label class="form-control-label" for="password">Password (at least 6 characters long; may not include anything related to hawkeyes): </label>
-                        <input type="password" class="form-control" ng-class="{ 'is-invalid': newAccountForm.password.$invalid && newAccountForm.password.$touched, 'is-valid': !newAccountForm.password.$invalid && newAccountForm.password.$touched }" name="password" ng-model="account.password" ng-minlength="6" id="password" required/>
-                        <div ng-show="newAccountForm.password.$invalid && newAccountForm.password.$touched" >The password must be at least six characters long</div>
+                    <div class="form-group">
+                        <label>Role: </label>
+                        <select class="form-control" name="role_id" ng-model="account.role_id" required>
+                            <option value ="">Select Role:</option>
+                            <option value ="S">Student</option>
+                            <option value ="T">Tutor</option>
+                            <option value ="F">Faculty</option>
+                            <option value ="A">Admin</option>
+                        </select>
                     </div>
-
                     <!-- newAccount is a function in the data.info.controller.js account refers to the word we used under ng-model in the input fields -->
-                    <button class="btn btn-default" ng-click="newAccount(account)" ng-disabled="newAccountForm.$invalid">Add Admin</button>
+                    <button class="btn btn-primary" ng-click="addAccount(account)" ng-disabled="newAccountForm.$invalid">Add Account</button>
                 </form>
             </div>
 

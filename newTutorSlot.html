@@ -50,19 +50,33 @@
                         </select>
                     </div>
 
-                    <div class="form-group" ng-class="{ 'text-danger': newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched, 'text-success': !newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched}">
-                        <label>Day: </label>
-                        <input type="text" class="form-control" ng-class="{ 'is-invalid': newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched, 'is-valid': !newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched}" name="weekday" ng-model="slot.weekday" ng-minlength="2" required/>
-                        <p ng-show="newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched" >The name of the day must be at least two characters long</p>
+                   <div class="form-group">
+                        <label>Course: </label>
+                        <select  class="form-control" name="weekday" ng-model="slot.weekday" required>
+                            <option value ="">Select Day</option>
+                            <option value ="Monday">Monday</option>
+                            <option value ="Tuesday">Tuesday</option>
+                            <option value ="Wednesday">Wednesday</option>
+                            <option value ="Thursday">Thursday</option>
+                            <option value ="Friday">Friday</option>
+                        </select>
                     </div>
 
-                    <div class="form-group" ng-class="{ 'text-danger': newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched, 'text-success': !newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched}">
-                        <label>Time Slot: </label>
-                        <input type="text" class="form-control" ng-class="{ 'is-invalid': newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched, 'is-valid': !newSlotForm.timeslot.$invalid && newSlotForm.timeslot.$touched}" name="timeslot" ng-model="slot.timeslot" ng-minlength="2" required/>
-                        <p ng-show="newSlotForm.weekday.$invalid && newSlotForm.weekday.$touched" >The name of the day must be at least two characters long</p>
+                    <div class="form-group">
+                        <label>Course: </label>
+                        <select  class="form-control" name="timeslot" ng-model="slot.timeslot" required>
+                            <option value ="">Select Time</option>
+                            <option value ="10:00 AM - 10:50 AM">10:00 AM - 10:50 AM</option>
+                            <option value ="11:00 AM - 11:50 AM">11:00 AM - 11:50 AM</option>
+                            <option value ="12:00 PM - 12:50 PM">12:00 PM - 12:50 PM</option>
+                            <option value ="1:00 PM - 1:50 PM">1:00 PM - 1:50 PM</option>
+                            <option value ="2:00 PM - 2:50 PM">2:00 PM - 2:50 PM</option>
+                            <option value ="3:00 PM - 3:50 PM">3:00 PM - 3:50 PM</option>
+                            <option value ="4:00 PM - 4:50PM">4:00 PM - 4:50PM</option>
+                        </select>
                     </div>
                     <!-- newtutor is a function in the controller. tutor refers to the word we used under ng-model in the input fields -->
-                    <button class="btn-primary" ng-click="newSlot(slot)" ng-disabled="newSlotForm.$invalid">Add tutor</button>
+                    <button class="btn btn-primary" ng-click="newSlot(slot)" ng-disabled="newSlotForm.$invalid">Add Timeslot</button>
                 </form>
 
             </div>

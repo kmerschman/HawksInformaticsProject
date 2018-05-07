@@ -38,6 +38,24 @@
                }
             });
         };
+        $scope.addAccount = function(accountDetails) {
+            var accountupload = angular.copy(accountDetails);
+            
+            $http.post("addAccount.php", accountupload)
+                    .then(function (response) {
+                        if (response.status == 200) {
+                    if (response.data.status == 'error') {
+                        alert('error: ' + response.data.message);
+                    } else {
+                        // successful
+                        // send user back to home page
+                        $window.location.href = "adminHome.html";
+                    }
+               } else {
+                    alert('unexpected error');
+               }
+            });
+        };
 
 
         // function to log the user out
@@ -160,13 +178,17 @@
                             if (response.data.status == 'error') {
                                 alert('error: ' + response.data.message);
                             } else {
+                                $http.post("sendEmail.php", {'session_id' : session_id})
                                 $window.location.href = "addSession.html";
                                 }
                         }
                     });
+                
+                    
             }else {
                 alert('unexpected error');
             }
+            
 
         };
 
@@ -389,13 +411,103 @@
 
                 }
             });
-            
-    myApp.controller("problemSet", function($scope, $http, $window) {
-        $http.get('getproblemSet.php')
-        .then(function(response) {
-            $scope.data = response.data.value;
+    myApp.controller("allUpcomingSlots", function($scope, $http, $window) {
+            $http.get('getAllSlots.php')
+                .then(function(response) {
+                    $scope.data = response.data.value;
+                });
+            $scope.menuHighlight = 0;
+
+            $scope.login = function(accountDetails) {
+              var accountupload = angular.copy(accountDetails);
+
+              $http.post("getLoginRole.php", accountupload)
+                .then(function (response) {
+                   if (response.status == 200) {
+                        if (response.data.status == 'error') {
+                            alert('error: ' + response.data.message);
+                        } else {
+                            if (response.data.role == 'S') {
+                                $window.location.href = 'studentHome.html'
+                            }
+                            else if (response.data.role == 'A') {
+                                $window.location.href = 'adminHome.html'
+                            }
+                            else if (response.data.role == 'T') {
+                                $window.location.href = 'tutorHome.html'
+                            }
+                            else if (response.data.role == 'F') {
+                                $window.location.href = 'facultyHome.html'
+                            }
+                        }
+                   } else {
+                        alert('unexpected error');
+                   }
+                });
+            };
+
+
+            // function to log the user out
+            $scope.logout = function() {
+              $http.post("logout.php")
+                .then(function (response) {
+                   if (response.status == 200) {
+                        if (response.data.status == 'error') {
+                            alert('error: ' + response.data.message);
+                        } else {
+                            // successful
+                            // send user back to home page
+                            $window.location.href = "index.html";
+                        }
+                   } else {
+                        alert('unexpected error');
+                   }
+                });
+            };
+
+            // function to check if user is logged in
+            $scope.checkifloggedin = function() {
+              $http.post("isloggedin.php")
+                .then(function (response) {
+                   if (response.status == 200) {
+                        if (response.data.status == 'error') {
+                            alert('error: ' + response.data.message);
+                        } else {
+                            // successful
+                            // set $scope.isloggedin based on whether the user is logged in or not
+                            $scope.isloggedin = response.data.loggedin;
+                        }
+                   } else {
+                        alert('unexpected error');
+                   }
+                });
+            };
+
+            $scope.cancelSession = function(session_id) {
+                if (confirm("Are you sure you want to cancel this session?")) {
+                    $http.post("cancelSession.php", {'session_id' : session_id})
+                        .then(function (response) {
+                            if (response.status == 200) {
+                                if (response.data.status == 'error') {
+                                    alert('error: ' + response.data.message);
+                                } else {
+                                    $window.location.href = "studentHome.html";
+                                    }
+                            }
+                        });
+                    }else {
+                        alert('unexpected error');
+                    }
+
+                };
+            });
+
+        myApp.controller("problemSet", function($scope, $http, $window) {
+            $http.get('getproblemSet.php')
+            .then(function(response) {
+                $scope.data = response.data.value;
+            });
+            $scope.menuHighlight = 0;
         });
-        $scope.menuHighlight = 0;
-    });
 
 }) ();

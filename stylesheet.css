@@ -98,6 +98,11 @@ th {
     background-color: #cccccc;
     border-color: #cccccc;
 }
+.btn-primary:disabled {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
 #footer {
     width: 100%;
     bottom: 0;
