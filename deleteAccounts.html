@@ -1,0 +1,55 @@
+<!doctype html>
+
+<!-- ng-app="Tutor" defines the angular app that we are using. The name is defined under info.module.js -->
+<html lang="en" ng-app="Tutor">
+<head>
+    <!-- this is what shows up in the tabs in your browser and if you bookmark the page -->
+    <title>Add Tutoring Session</title>
+
+    <!-- These are the links to bootstrap code -->
+    <!-- we got the links from http://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- link to angular -->
+    <!-- you can download it from https://angularjs.org/ then you need to upload it to the webdev server. -->
+    <script src="angular.min.js"></script>
+
+    <!-- angular code -->
+    <!-- info.module.js is where we define the angular app called 'Tutor'. We use the name of the app in the html element at the top of the file -->
+    <script src="info.module.js"></script>
+    <!-- data.info.controller.js is where we are getting the data from. It defines a controller under the 'Tutor' app called 'dataControl', and data is under $scope.data -->
+    <script src="data.info.controller.js"></script>
+    <!-- info.filter.js enables us to display html code -->
+    <script src="info.filter.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <!-- we are defining the angular controller that we will use in this chunk of html defined by the div as 'dataControl' from data.info.controller.js -->
+    <div class="container" ng-controller="accountControl">
+
+        <!-- header -->
+        <div id = "header" ng-include ng-init="menuHighlight = 2;" src="'adminHeader.html'"></div>
+        <div class = "row">
+            <div class = "col-sm-12">
+                <table>
+                  <tr>
+                    <th>Hawkid</th>
+                    <th>Role</th>
+                  </tr>
+                  <tr ng-repeat = "account in data.accounts">
+                    <td>{{account.username}}</td>
+                    <td>{{account.role_id}}</td>
+                    <td><button class = "btn btn-primary" ng-click = "deleteAccount(account.username)">Delete Account</button></td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer -->
+    <div id = "footer" ng-include src="'footer.html'"></div>
+</body>
+</html>

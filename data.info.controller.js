@@ -112,6 +112,31 @@
         };
     });
 
+    myApp.controller("accountControl", function($scope, $http, $window) {
+            $http.get('getAccounts.php')
+            .then(function(response) {
+                $scope.data = response.data.value;
+            });
+            
+            $scope.deleteAccount = function(username) {
+               if (confirm("Are you sure you want to delete this account?")) {
+                $http.post("deleteAccount.php", {'username' : username})
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            if (response.data.status == 'error') {
+                                alert('error: ' + response.data.message);
+                            } else {
+                                $window.location.href = "adminHome.html";
+                                }
+                        }else {
+                            alert('unexpected error');
+                        }
+
+
+            });
+            };
+        };
+    });
 
     myApp.controller("addSlots", function($scope, $http, $window) {
         $http.get('getTutorSlots.php')
