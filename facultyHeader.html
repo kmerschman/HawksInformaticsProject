@@ -22,12 +22,12 @@
 
         <!-- active only if menuHighlight is equal to 0 -->
       <li class="nav-item" ng-class="{'active' : (menuHighlight == 0)}">
-        <a class="nav-link" href="tutorHome.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="facultyHome.html">Home <span class="sr-only">(current)</span></a>
       </li>
 
       <!-- menu item for adding players, active if menuHighlight is equal to 1 -->
       <li class="nav-item" ng-class="{'active' : (menuHighlight == 1)}" ng-show="isloggedin">
-        <a class="nav-link" href="newTutorSlot.html">Add Course Problems</a>
+        <a class="nav-link" href="newProblem.html">Add Course Problems</a>
       </li>
       <li class="nav-item" ng-class="{'active' : (menuHighlight == 2)}" ng-show="isloggedin">
         <a class="nav-link" href="newAccount.html">Add Tutor</a>
