@@ -31,7 +31,7 @@
     <div class="container" ng-controller="addSlots">
 
         <!-- header -->
-        <div id = "header" ng-include ng-init="menuHighlight = 1;" src="'tutorHeader.html'"></div>
+        <div id = "header" ng-include ng-init="menuHighlight = 1;" src="'facultyHeader.html'"></div>
 
 
         <!-- form for entering new tutor -->
@@ -60,7 +60,7 @@
                         <textarea class="form-control" name="question" ng-model="problem.question" required/>
                     </div>
                     <!-- newtutor is a function in the controller. tutor refers to the word we used under ng-model in the input fields -->
-                    <button class="btn btn-primary" ng-click="newSlot(slot)" ng-disabled="newSlotForm.$invalid">Add Timeslot</button>
+                    <button class="btn btn-primary">Add Timeslot</button>
                 </form>
 
             </div>
