@@ -31,6 +31,9 @@ form {
     display: inline-block;
     vertical-align: middle;
 }
+.form-group {
+    display:block;
+}
 
 /* Style the tab */
 .tab {

@@ -44,18 +44,35 @@
             $http.post("addAccount.php", accountupload)
                     .then(function (response) {
                         if (response.status == 200) {
-                    if (response.data.status == 'error') {
-                        alert('error: ' + response.data.message);
-                    } else {
-                        // successful
-                        // send user back to home page
-                        $window.location.href = "adminHome.html";
-                    }
-               } else {
-                    alert('unexpected error');
-               }
-            });
+                            if (response.data.status == 'error') {
+                                alert('error: ' + response.data.message);
+                            } else {
+                                // successful
+                                // send user back to home page
+                                $window.location.href = "adminHome.html";
+                            }
+                        } else {
+                            alert('unexpected error');
+                        }
+                    });
         };
+          
+
+        $scope.updatePassword = function(password) {
+            $http.post("updatePassword.php", {'password' : password})
+                .then(function (response) {
+                    if (response.status == 200) {
+                        if (response.data.status == 'error') {
+                            alert('error: ' + response.data.message);
+                        } else {
+                            $window.location.href = "studentHome.html";
+                            }
+                    } else {
+                        alert('unexpected error');
+                           }
+                    })
+            };
+
 
 
         // function to log the user out
@@ -93,8 +110,8 @@
                }
             });
         };
-
     });
+
 
     myApp.controller("addSlots", function($scope, $http, $window) {
         $http.get('getTutorSlots.php')
@@ -507,7 +524,6 @@
             .then(function(response) {
                 $scope.data = response.data.value;
             });
-            $scope.menuHighlight = 0;
         });
 
 }) ();

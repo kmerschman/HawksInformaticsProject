@@ -8,7 +8,7 @@ $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 session_start();
 $username = $_SESSION['username'];
 
-$query = "SELECT courseNumber, credits FROM studentCourse WHERE hawkid = '$username';";
+$query = "SELECT * FROM studentCourse WHERE hawkid = '$username';";
 
 $result = queryDB($query, $db);
 # create an array holding course credit information 
@@ -19,6 +19,7 @@ while ($thiscredit = nextTuple($result)) {
     $credits[$i] = $thiscredit;
     $i++;
 };
+        
 
 //create JSON object for credits
 $response = array();

@@ -10,14 +10,21 @@ $db = connectDB($DBHost, $DBUser, $DBPassword, $DBName);
 session_start();
 $username = $_session['username'];
 
-$query1 = "SELECT question FROM problemSet WHERE courseNumber = (SELECT courseNumber FROM studentCourse WHERE hawkid = '$username');";
-$result1 = queryDB($query, $db);
+$query1 = "SELECT * FROM problemSet WHERE courseNumber = (SELECT courseNumber FROM studentCourse WHERE hawkid = '$username');";
+$result1 = queryDB($query1, $db);
 
+$questions = array();
+$i = 0;
+
+while ($thisquestion = nextTuple($result1)) {
+    $questions[$i] = $thisquestion;
+    $i++;
+};
 
 //create JSON object for problemsets
 $response = array();
 $response['status'] = 'success';
-$response['value']['question'] = $result1;
+$response['value']['questions'] = $questions;
 header('Content-Type: application/json');
 echo(json_encode($response));
 ?>
